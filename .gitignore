@@ -1,0 +1,35 @@
+
+# compiled output
+/front-end/dist
+/front-end/tmp
+
+# dependencies
+/front-end/node_modules
+/node_modules
+/front-end/bower_components
+/bower_components
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+*.launch
+.settings/
+
+# misc
+/front-end/.sass-cache
+/front-end/connect.lock
+/front-end/coverage/*
+/libpeerconnection.log
+npm-debug.log
+/front-end/npm-debug.log
+/front-endtestem.log
+/front-end/typings
+
+# e2e
+/front-end/e2e/
+
+
+#System Files
+.DS_Store
+Thumbs.db
