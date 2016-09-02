@@ -1,0 +1,75 @@
+.group-body{
+  .links{
+    margin-top: 5px;
+  }
+}
+
+
+.panel-body ,
+.panel-footer{
+  word-wrap:break-word;
+}
+
+
+
+hr{
+  border: 1px solid lightgray;
+}
+
+a{
+  &:hover{
+    cursor: pointer;
+  }
+}
+.container{
+  margin: 10px;
+}
+
+
+
+.group-new{
+  text-align: center;
+}
+.new-create{
+  font-size: 50px;
+  text-align: center;
+  a{
+    transition: all 0.4s;
+    background:#CFD8DC;
+    padding-bottom: 10px;
+    padding-right:20px;
+    padding-left: 20px;
+    border-radius: 50%;
+    &:hover{
+      cursor: pointer;
+      text-decoration: none;
+      background: #B0BEC5 ;
+    }
+  }
+}
+
+
+.description{
+  margin-left: 40px;
+  color: darkgray;
+}
+
+header{
+  padding-top: 10px;
+  margin-left: 40px;
+  display: inline-block;
+  .group-counter{
+    float: left;
+    font-size: 30px;
+    text-align: center;
+
+  }
+
+  .group-name{
+    color: darkgray;
+    float:left;
+    margin-top: 30px;
+    margin-left: 10px;
+    min-width: 50px;
+  }
+}

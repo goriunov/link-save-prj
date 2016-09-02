@@ -6,13 +6,19 @@ header{
     font-size: 30px;
     text-align: center;
     color: dodgerblue;
+    small{
+      position: absolute;
+      top: 40px;
+      left:20px;
+      font-size: 13px;
+    }
   }
 
   .group-name{
     float:left;
     margin-top: 3px;
     margin-left: 10px;
-    min-width: 100px;
+    min-width: 60px;
   }
 }
 

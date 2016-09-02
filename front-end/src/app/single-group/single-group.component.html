@@ -1,0 +1,44 @@
+<section class="container">
+  <div class="row" *ngIf="singleGroup">
+    <div class="group-body col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <!---->
+      <header>
+        <div class="group-counter">
+          <h2>{{singleGroup.groupName}} </h2>
+        </div>
+        <div class ="group-name">
+          | {{singleGroup.links? singleGroup.links.length : '0'}} links
+        </div>
+      </header>
+      <br>
+      <span class="description">{{singleGroup.description}}</span>
+      <hr>
+<!---->
+
+        <div class="links col-xs-12" *ngFor="let websiteLink of singleGroup.linkName ; let i = index">
+
+          <div class="panel panel-primary" *ngIf = " edit != i+'edit'">
+            <div class="panel-body">
+              <a href="{{singleGroup.links[i]}}" target='_blank'>{{websiteLink}}</a>
+              <div style="float: right">
+                <a (click)="edit = i+'edit'">edit</a>
+                <a (click)="onDelete(i)">delete</a>
+              </div>
+            </div>
+            <div class="panel-footer">
+              <span style="color: lightslategray">{{singleGroup.links[i]}}</span>
+            </div>
+          </div>
+
+          <div class="links col-xs-12" *ngIf="edit == i+'edit'"><app-edit-create-links [singleGroup]="singleGroup" [index]="i" (canceled)="edit = ''" ></app-edit-create-links></div>
+        </div>
+
+<!---->
+      <div class="group-new">
+        <div class="new-create col-xs-12" *ngIf="!new" ><a (click)="new = true">+</a></div>
+      </div>
+      <div class="links col-xs-12" *ngIf="new"><app-edit-create-links [singleGroup]="singleGroup" (canceled)="new = false" ></app-edit-create-links></div>
+
+    </div>
+  </div>
+</section>

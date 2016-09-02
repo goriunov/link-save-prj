@@ -8,7 +8,9 @@ import { MainContentComponent } from "./main-content/main-content.component";
 import { Routing } from "./app.routes";
 import { ListElementComponent } from "./main-content/list-elements/list-element.component";
 import { DataService } from "./main-content/data.service";
-import { EditCreateComponent } from "./edit-create/edit-create.component";
+import { EditCreateComponent } from "./main-content/edit-create/edit-create.component";
+import { SingleGroupComponent } from "./single-group/single-group.component";
+import { EditCreateLinksComponent } from "./single-group/edit-create-links/edit-create-links.component";
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { EditCreateComponent } from "./edit-create/edit-create.component";
     NavBarMenuComponent,
     MainContentComponent,
     ListElementComponent,
-    EditCreateComponent
+    EditCreateComponent,
+    SingleGroupComponent,
+    EditCreateLinksComponent
   ],
   imports: [
     BrowserModule,

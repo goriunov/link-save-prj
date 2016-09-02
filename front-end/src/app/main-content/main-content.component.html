@@ -5,7 +5,7 @@
         <span style="padding-top: 2px; top: 0; position: absolute;" (click)="edit = i+'edit'"><img src="pictures/editButton.png"></span>
         <span style="right: 5px; padding-top: 2px; top: 0; position: absolute; color:red;" (click)="edit = i+'delete'">x</span>
         <span style="font-size:22px; right: 30px; top: 0;  position: absolute; color:blue;">+</span>
-        <span class="btn btn-info" style="border-radius: 20px; font-size:15px; bottom: 10px; right: 0; position: absolute;">Open</span>
+        <span class="btn btn-info" style="border-radius: 20px; font-size:15px; bottom: 10px; right: 0; position: absolute;" (click)="onOpen(i)">Open</span>
       </div>
       <div class="main-content">
         <app-list-element [singleData]="singleData"></app-list-element>

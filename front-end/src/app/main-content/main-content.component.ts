@@ -1,6 +1,7 @@
 import { Component , OnInit } from '@angular/core';
 import { SingleLinkData } from "../shared/single-link-data";
 import { DataService } from "./data.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -14,7 +15,7 @@ export class MainContentComponent implements OnInit{
   edit = '';
   dataGroup: SingleLinkData[] = [];
 
-  constructor(private dataService : DataService){}
+  constructor(private dataService : DataService , private router: Router){}
 
   ngOnInit(){
     this.dataGroup = this.dataService.getItems();
@@ -23,6 +24,10 @@ export class MainContentComponent implements OnInit{
   onDelete(dataToDelete : SingleLinkData){
     this.edit = '';
     this.dataService.deleteContent(dataToDelete);
+  }
+
+  onOpen(index){
+      this.router.navigate(['group' , index]);
   }
 
 }

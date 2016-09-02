@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Output, Input, OnInit} from '@angular/core'
 import {Router} from "@angular/router";
-import {DataService} from "../main-content/data.service";
-import {SingleLinkData} from "../shared/single-link-data";
+import {DataService} from "../data.service";
+import {SingleLinkData} from "../../shared/single-link-data";
 import {FormGroup, FormControl , Validators} from "@angular/forms";
 
 @Component({

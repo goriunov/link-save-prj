@@ -29,6 +29,10 @@ $textColorNavBar: whitesmoke;
 .logo{
   color:$textColorNavBar;
   display:inline-block;
+  a{
+    color:$textColorNavBar;
+    text-decoration: none;
+  }
   h4{
     margin-top: 15px;
     margin-left: 10px;
