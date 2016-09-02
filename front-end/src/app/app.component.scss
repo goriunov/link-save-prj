@@ -1,5 +1,43 @@
-h1{
-  h1{
-    color: red;
-  }
+$topMenuColor : #0288D1;
+
+.container{
+  margin-top: 20px
 }
+
+
+
+
+//Left menu bar and button on small position
+app-left-menu{
+  height: 45px;
+  box-shadow: 3px 3px 3px gray;
+  z-index: 1000;
+}
+
+aside{
+  background: $topMenuColor;
+  height: 65px;
+  padding-top: 7px
+}
+.affix {
+  top: 0;
+  width: 100%;
+  background: $topMenuColor;
+}
+
+
+
+
+
+//Media Response
+//Break to middle
+@media screen and (max-width: 930px){
+}
+
+//Break to small
+@media screen and (max-width: 590px){
+
+}
+
+
+

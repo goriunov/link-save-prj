@@ -1,0 +1,112 @@
+.grid-element{
+  transition: all 0.3s;
+  height: 200px;
+  margin: 10px;
+  background: white;
+  box-shadow: 2px 2px 2px gray;
+  overflow: hidden;
+  padding-bottom: 5px;
+
+  &:hover{
+    background: #FAFAFA;
+
+    .main-content{
+      transition: all 0.3s;
+      margin-top: 35px;
+      opacity: 0.3;
+    }
+    .option-buttons{
+      display: block;
+      opacity: 1.0;
+
+    }
+  }
+}
+
+.option-buttons{
+  transition: all 0.3s;
+  opacity: 0.5;
+  display: none;
+    span{
+      z-index: 10;
+      transition: all 0.3s;
+      font-size: 20px;
+      margin: 10px;
+      &:hover{
+        margin-top: 7px;
+        cursor: pointer;
+      }
+      img{
+         width: 20px;
+       }
+    }
+}
+
+.deleting{
+  text-align: center;
+  p{
+    margin-top: 20px;
+  }
+}
+
+.new-element{
+  height: 200px;
+  padding: 10px;
+  margin: 10px;
+  background: white;
+  box-shadow: 2px 2px 2px gray;
+}
+
+.new-create{
+  font-size: 50px;
+  text-align: center;
+  a{
+    transition: all 0.4s;
+    background:#CFD8DC;
+    padding-bottom: 10px;
+    padding-right:20px;
+    padding-left: 20px;
+    border-radius: 50%;
+   &:hover{
+     cursor: pointer;
+     text-decoration: none;
+     background: #B0BEC5 ;
+   }
+  }
+}
+
+
+@media screen and (min-width: 768px){
+  .new-create{
+    margin-top: 70px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 991px){
+  .grid-element{
+    height: 230px;
+  }
+  .new-element{
+    height: 230px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .grid-element{
+    height: 150px;
+  }
+  .new-element{
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 430px){
+  .grid-element{
+    height: 200px;
+  }
+  .new-element{
+    height: 200px;
+  }
+}
+

@@ -1,0 +1,13 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <fieldset class="form-group">
+    <input type="text" class="form-control" maxlength="30" placeholder="New group name" formControlName="name">
+  </fieldset>
+
+  <fieldset class="form-group">
+    <textarea  class="form-control" rows="3" maxlength="80" placeholder="Description" formControlName="description"></textarea>
+  </fieldset>
+  <div class="buttons">
+    <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">{{editContent ? 'Save' : 'Create'}}</button>
+    <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
+  </div>
+</form>
