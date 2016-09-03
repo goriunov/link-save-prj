@@ -2,7 +2,7 @@
   <div class=""  *ngFor="let singleData of dataGroup; let i = index">
     <div class="grid-element col-sm-3" *ngIf="edit != i+'edit' && edit != i+'delete'">
       <div class="option-buttons">
-        <span style="padding-top: 2px; top: 0; position: absolute;" (click)="edit = i+'edit'"><img src="pictures/editButton.png"></span>
+        <span style="padding-top: 2px; top: 0; position: absolute;" (click)="edit = i+'edit'"><img src="assets/pictures/editButton.png"></span>
         <span style="right: 5px; padding-top: 2px; top: 0; position: absolute; color:red;" (click)="edit = i+'delete'">x</span>
         <span style="font-size:22px; right: 30px; top: 0;  position: absolute; color:blue;">+</span>
         <span class="btn btn-info" style="border-radius: 20px; font-size:15px; bottom: 10px; right: 0; position: absolute;" (click)="onOpen(i)">Open</span>
@@ -20,6 +20,6 @@
     </div>
   </div>
 
-  <div class="new-element col-sm-3" *ngIf="new"><app-edit-create (canceled)="new = false"></app-edit-create></div>
-  <div class="new-create col-sm-3"><a *ngIf="!new" (click)="new = true">+</a></div>
+  <div class="new-element col-sm-3" *ngIf="createNew"><app-edit-create (canceled)="createNew = false"></app-edit-create></div>
+  <div class="new-create col-sm-3"><a *ngIf="!createNew" (click)="createNew = true">+</a></div>
 </section>

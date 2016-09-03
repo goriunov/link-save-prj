@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "gulp": "gulp clean && gulp copy_files && gulp watching",
-    "build-w":"cd front-end && ng build -w"
+    "build-w": "cd front-end && ng build -w",
+    "build": "cd front-end && ng build -prod"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
@@ -13,6 +14,7 @@
     "debug": "~2.2.0",
     "express": "~4.13.4",
     "hbs": "~4.0.0",
+    "minimal-metainspector": "^1.1.1",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0"
   },

@@ -1,7 +1,7 @@
 import { Component , OnInit } from '@angular/core';
 import { SingleLinkData } from "../shared/single-link-data";
 import { DataService } from "./data.service";
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 })
 
 export class MainContentComponent implements OnInit{
-  new = false;
+  createNew = false;
   edit = '';
   dataGroup: SingleLinkData[] = [];
 

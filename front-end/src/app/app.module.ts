@@ -11,6 +11,7 @@ import { DataService } from "./main-content/data.service";
 import { EditCreateComponent } from "./main-content/edit-create/edit-create.component";
 import { SingleGroupComponent } from "./single-group/single-group.component";
 import { EditCreateLinksComponent } from "./single-group/edit-create-links/edit-create-links.component";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { EditCreateLinksComponent } from "./single-group/edit-create-links/edit-
     ReactiveFormsModule,
     CommonModule,
     FormsModule,
+    HttpModule,
     Routing
   ],
   providers: [DataService],

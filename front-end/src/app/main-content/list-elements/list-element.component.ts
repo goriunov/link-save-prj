@@ -9,6 +9,5 @@ import { SingleLinkData } from "../../shared/single-link-data";
 })
 
 export class ListElementComponent{
- @Input() singleData : SingleLinkData;
-
+ @Input()singleData : SingleLinkData;
 }
