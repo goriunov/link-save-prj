@@ -3,6 +3,7 @@ import {FormGroup, FormControl, Validators} from "@angular/forms";
 import {SingleLinkData} from "../../shared/single-link-data";
 import {DataService} from "../../main-content/data.service";
 import {Http, URLSearchParams} from "@angular/http";
+import {Subscription} from "rxjs";
 
 
 @Component({
@@ -16,9 +17,12 @@ export class EditCreateLinksComponent implements OnInit{
   @Input() singleGroup : SingleLinkData;
   @Input() index : number;
   @Output() canceled: EventEmitter<any> = new EventEmitter();
+  subscribe: Subscription;
   myForm : FormGroup;
   linkName: string = 'Link';
-  permission: boolean = false;
+  permission: any = false;
+  editing = 'Save';
+  creating = 'Create';
 
   constructor(private dataService: DataService , private http: Http){}
 
@@ -35,27 +39,36 @@ export class EditCreateLinksComponent implements OnInit{
     });
   }
 
-  onSubmit(){
+  onSubmit() {
     this.permission = true;
     let params = new URLSearchParams();
     params.set('link', this.myForm.controls['link'].value);
-    this.http.get('http://localhost:3000/get-title/' , { search: params })
+
+    this.subscribe = this.http.get('http://localhost:3000/get-title/', {search: params})
       .map((data) => data.json())
       .subscribe(
         (data) => {
           this.linkName = data.title;
-          if(this.index >= 0){
+          if (this.index >= 0) {
             this.dataService.editLink(this.singleGroup, this.index, this.linkName, this.myForm.controls['link'].value);
             this.canceled.emit(false);
-          }else{
-            this.dataService.createNewLink(this.singleGroup ,this.linkName , this.myForm.controls['link'].value);
+          } else {
+            this.dataService.createNewLink(this.singleGroup, this.linkName, this.myForm.controls['link'].value);
             this.canceled.emit(false);
           }
         },
-        (err) => console.log(err)
-      );
-  }
+        (err) => {
+          this.permission = false;
+          console.log(err);
+        });
+    setTimeout(()=> {
+      this.editing = 'Please try again';
+      this.creating = 'Please try again';
+      this.subscribe.unsubscribe();
+      this.permission = false;
+    }, 10000);
 
+  }
 
   cancel(){
     this.canceled.emit(false);

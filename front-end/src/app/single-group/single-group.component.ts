@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit, Input} from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs";
 import { SingleLinkData } from "../shared/single-link-data";
@@ -15,7 +15,7 @@ export class SingleGroupComponent implements OnDestroy , OnInit{
   new = false;
   subscribtion: Subscription;
   paramId: number;
-  singleGroup: SingleLinkData;
+  @Input() singleGroup: SingleLinkData;
 
 
   constructor(private route: ActivatedRoute , private dataService : DataService){}

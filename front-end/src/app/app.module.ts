@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, LocationStrategy, HashLocationStrategy} from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavBarMenuComponent } from "./nav-bar-menu";
@@ -31,7 +31,7 @@ import {HttpModule} from "@angular/http";
     HttpModule,
     Routing
   ],
-  providers: [DataService],
+  providers: [DataService , {provide: LocationStrategy, useClass: HashLocationStrategy}],
   entryComponents: [AppComponent],
   bootstrap: [AppComponent]
 })

@@ -11,23 +11,35 @@ router.get('/', function(req, res, next) {
 
 router.get('/get-title/', function(req, res, next) {
   var client = new MetaInspector(req.query.link, {});
-  console.log('works');
-  client.on("fetch", function(){
-    var details = {
-      "title": client.title
-    };
-    console.log(details);
-    res.json(details);
-  });
-  client.on("error", function(err){
-    var details = {
-      "title": "Link-Do-Not-Know-Title :)"
-    };
-    res.json(details);
-    console.log('Cant load content');
-  });
+  console.log('Getting title');
 
-  client.fetch();
+  if(req.query.link == 'new'){
+    res.status(200).json({
+      'title': "Link-Do-Not-Know-Title :)"
+    });
+
+  }else{
+
+    client.on("fetch", function () {
+      if(client.title == ''){
+        res.status(200).json({
+          "title": 'Link no title'
+        });
+      }else {
+        res.status(200).json({
+          "title": client.title
+        });
+      }
+    });
+
+    client.on("error", function (err) {
+      res.status(500).json({
+        "title": "Link somewhere"
+      });
+    });
+    client.fetch();
+
+  }
 });
 
 

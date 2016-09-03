@@ -19,11 +19,11 @@
 
           <div class="panel panel-primary" *ngIf = " edit != i+'edit'">
             <div class="panel-body">
-              <a href="{{singleGroup.links[i]}}" target='_blank'>{{websiteLink}}</a>
               <div style="float: right">
                 <a (click)="edit = i+'edit'">edit</a>
                 <a (click)="onDelete(i)">delete</a>
               </div>
+              <a href="{{singleGroup.links[i]}}" target='_blank'>{{websiteLink}}</a>
             </div>
             <div class="panel-footer">
               <span style="color: lightslategray">{{singleGroup.links[i]}}</span>

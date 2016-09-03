@@ -3,19 +3,22 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "pm2 start ./bin/www -i max",
     "gulp": "gulp clean && gulp copy_files && gulp watching",
     "build-w": "cd front-end && ng build -w",
     "build": "cd front-end && ng build -prod"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
+    "cluster": "^0.7.7",
+    "compression": "^1.6.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "express": "~4.13.4",
     "hbs": "~4.0.0",
     "minimal-metainspector": "^1.1.1",
     "morgan": "~1.7.0",
+    "pm2": "^1.1.3",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
