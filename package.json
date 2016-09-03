@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "preinstall": "npm i -g pm2",
-    "start": "node main.js",
+    "start": "node ./bin/www",
     "gulp": "gulp clean && gulp copy_files && gulp watching",
     "build-w": "cd front-end && ng build -w",
     "build": "cd front-end && ng build -prod"
