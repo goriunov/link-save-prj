@@ -44,7 +44,7 @@ export class EditCreateLinksComponent implements OnInit{
     let params = new URLSearchParams();
     params.set('link', this.myForm.controls['link'].value);
 
-    this.subscribe = this.http.get('http://localhost:3000/get-title/', {search: params})
+    this.subscribe = this.http.get('/get-title/', {search: params})
       .map((data) => data.json())
       .subscribe(
         (data) => {
