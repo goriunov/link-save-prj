@@ -33,7 +33,7 @@ router.get('/get-title/', function(req, res, next) {
     });
 
     client.on("error", function (err) {
-      res.status(500).json({
+      res.status(200).json({
         "title": "Link somewhere"
       });
     });
