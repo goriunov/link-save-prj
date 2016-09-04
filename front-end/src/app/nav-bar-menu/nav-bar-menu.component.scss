@@ -18,7 +18,8 @@ $textColorNavBar: whitesmoke;
     border-radius: 50%;
   }
 
-  &:hover{
+  &:hover,
+  &:focus{
     cursor: pointer;
     color:#E0E0E0;
   }
