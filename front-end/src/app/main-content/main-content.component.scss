@@ -1,3 +1,4 @@
+
 .grid-element{
   transition: all 0.3s;
   height: 200px;
@@ -9,7 +10,8 @@
 
   &:hover,
   &:focus,
-  &:active{
+  &:active,
+  .hover-grid{
     background: #FAFAFA;
 
     .main-content{

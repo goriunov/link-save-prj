@@ -1,6 +1,6 @@
 <section class="container">
-  <div class=""  *ngFor="let singleData of dataGroup; let i = index">
-    <div class="grid-element col-sm-3" *ngIf="edit != i+'edit' && edit != i+'delete' && edit != i+'add'">
+  <div class=""  *ngFor="let singleData of dataGroup; let i = index ">
+    <div class=" grid-element col-sm-3" (mousemove)="addClass = i"  (mouseleave)="addClass = -1" [ngClass]="addClass==i ? 'hover-grid' : ''" *ngIf="edit != i+'edit' && edit != i+'delete' && edit != i+'add'">
       <div class="option-buttons">
         <span style="padding-top: 2px; top: 0; position: absolute;" (click)="edit = i+'edit'"><img src="assets/pictures/editButton.png"></span>
         <span style="right: 5px; padding-top: 2px; top: 0; position: absolute; color:red;" (click)="edit = i+'delete'">x</span>
@@ -23,4 +23,5 @@
 
   <div class="new-element col-sm-3" *ngIf="createNew"><app-edit-create (canceled)="createNew = false"></app-edit-create></div>
   <div class="new-create col-sm-3"><a *ngIf="!createNew" (click)="createNew = true">+</a></div>
+
 </section>
