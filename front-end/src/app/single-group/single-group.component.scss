@@ -18,7 +18,8 @@ hr{
 
 a{
   &:hover,
-  &:focus{
+  &:focus,
+  &:active{
     cursor: pointer;
   }
 
@@ -43,7 +44,8 @@ a{
     padding-left: 20px;
     border-radius: 50%;
     &:hover,
-    &:focus{
+    &:focus,
+    &:active{
       cursor: pointer;
       text-decoration: none;
       background: #B0BEC5 ;

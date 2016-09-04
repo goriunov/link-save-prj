@@ -8,7 +8,8 @@
   padding-bottom: 5px;
 
   &:hover,
-  &:focus{
+  &:focus,
+  &:active{
     background: #FAFAFA;
 
     .main-content{
@@ -38,7 +39,8 @@
       font-size: 20px;
       margin: 10px;
       &:hover,
-      &:focus{
+      &:focus,
+      &:active{
         margin-top: 7px;
         cursor: pointer;
       }
@@ -74,7 +76,8 @@
     padding-left: 20px;
     border-radius: 50%;
    &:hover,
-   &:focus{
+   &:focus,
+   &:active{
      cursor: pointer;
      text-decoration: none;
      background: #B0BEC5 ;

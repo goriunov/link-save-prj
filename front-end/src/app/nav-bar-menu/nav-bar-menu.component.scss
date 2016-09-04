@@ -19,7 +19,8 @@ $textColorNavBar: whitesmoke;
   }
 
   &:hover,
-  &:focus{
+  &:focus,
+  &:active{
     cursor: pointer;
     color:#E0E0E0;
   }
