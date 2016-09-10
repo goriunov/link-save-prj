@@ -22,7 +22,8 @@ export class NavBarMenuComponent implements OnInit{
 
   logOut(){
     localStorage.clear();
-    this.router.navigate(['/group/1']);
+    this.fullName = '';
+    this.router.navigate(['/']);
   }
 
 

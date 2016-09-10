@@ -1,6 +1,6 @@
 
 .grid-element{
-  transition: all 0.3s;
+  transition: all 0.2s;
   height: 200px;
   margin: 10px;
   background: white;
@@ -16,7 +16,7 @@
     background: #FAFAFA;
 
     .main-content{
-      transition: all 0.3s;
+      transition: all 0.2s;
       margin-top: 35px;
       opacity: 0.3;
     }
@@ -33,12 +33,12 @@
 }
 
 .option-buttons{
-  transition: all 0.3s;
+  transition: all 0.2s;
   opacity: 0.5;
   display: none;
     span{
       z-index: 10;
-      transition: all 0.3s;
+      transition: all 0.2s;
       font-size: 20px;
       margin: 10px;
       &:hover,
@@ -107,7 +107,7 @@
 
 @media screen and (max-width: 768px){
   .grid-element{
-    height: 150px;
+    height: 170px;
   }
   .new-element{
     height: 200px;

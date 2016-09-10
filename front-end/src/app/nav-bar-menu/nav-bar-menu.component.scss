@@ -1,4 +1,4 @@
-$textColorNavBar: whitesmoke;
+$textColorNavBar: #FAFAFA;
 
 .image,
 .user-name{
@@ -15,7 +15,7 @@ $textColorNavBar: whitesmoke;
   &:focus,
   &:active{
     cursor: pointer;
-    color:#E0E0E0;
+    color: #BDBDBD;
   }
 
 }
@@ -27,6 +27,9 @@ $textColorNavBar: whitesmoke;
   a{
     color:$textColorNavBar;
     text-decoration: none;
+    &:hover{
+      color: #BDBDBD;
+    }
   }
   h4{
     margin-top: 15px;

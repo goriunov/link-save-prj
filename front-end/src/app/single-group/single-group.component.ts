@@ -27,7 +27,7 @@ export class SingleGroupComponent implements OnDestroy , OnInit{
         this.paramId = param['id'];
         this.singleGroup = this.dataService.getItem(this.paramId);
         if(this.singleGroup == null ){
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard'])
         }
       }
     )
