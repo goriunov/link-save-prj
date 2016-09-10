@@ -15,7 +15,8 @@ app-left-menu{
 }
 
 aside{
-  background: #607D8B;
+  background:$topMenuColor;
+  border-bottom: 1px solid #0277BD;
   height: 65px;
   padding-top: 7px
 }

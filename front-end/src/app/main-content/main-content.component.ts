@@ -1,13 +1,13 @@
 import { Component , OnInit } from '@angular/core';
 import { SingleLinkData } from "../shared/single-link-data";
-import { DataService } from "./data.service";
+import { DataService } from "../shared/data.service";
 import { Router } from "@angular/router";
 
 
 @Component({
   selector: 'app-main-content',
-  templateUrl: 'main-content.component.html',
-  styleUrls: ['main-content.component.scss']
+  templateUrl: './main-content.component.html',
+  styleUrls: ['./main-content.component.scss']
 })
 
 export class MainContentComponent implements OnInit{
@@ -18,7 +18,12 @@ export class MainContentComponent implements OnInit{
   constructor(private dataService : DataService , private router: Router){}
 
   ngOnInit(){
-    this.dataGroup = this.dataService.getItems();
+    this.dataService.getItems();
+    this.dataService.dataEmmit.subscribe(
+      (resource)=>{
+        this.dataGroup = resource;
+      }
+    )
   }
 
   onDelete(dataToDelete : SingleLinkData){

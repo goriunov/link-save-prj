@@ -5,8 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compression = require('compression');
+var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
+var database = require('./routes/database');
+var user = require('./routes/authentication');
+
+mongoose.connect('linker:linker154263@ds044679.mlab.com:44679/linker');
+mongoose.Promise = global.Promise;
 
 var app = express();
 app.use(compression());
@@ -39,7 +45,8 @@ app.use(function (req, res, next) {
   next();
 });
 
-
+app.use('/user' , user);
+app.use('/database' , database);
 app.use('/', routes);
 
 // catch 404 and forward to error handler

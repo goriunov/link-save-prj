@@ -7,11 +7,13 @@ import { NavBarMenuComponent } from "./nav-bar-menu";
 import { MainContentComponent } from "./main-content/main-content.component";
 import { Routing } from "./app.routes";
 import { ListElementComponent } from "./main-content/list-elements/list-element.component";
-import { DataService } from "./main-content/data.service";
+import { DataService } from "./shared/data.service";
 import { EditCreateComponent } from "./main-content/edit-create/edit-create.component";
 import { SingleGroupComponent } from "./single-group/single-group.component";
 import { EditCreateLinksComponent } from "./single-group/edit-create-links/edit-create-links.component";
 import {HttpModule} from "@angular/http";
+import {UserAuthComponent} from "./user-auth/user-auth.component";
+import {AuthService} from "./shared/auth.service";
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import {HttpModule} from "@angular/http";
     ListElementComponent,
     EditCreateComponent,
     SingleGroupComponent,
-    EditCreateLinksComponent
+    EditCreateLinksComponent,
+    UserAuthComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import {HttpModule} from "@angular/http";
     HttpModule,
     Routing
   ],
-  providers: [DataService , {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [DataService , AuthService , {provide: LocationStrategy, useClass: HashLocationStrategy}],
   entryComponents: [AppComponent],
   bootstrap: [AppComponent]
 })

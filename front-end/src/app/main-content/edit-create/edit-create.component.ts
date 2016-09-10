@@ -1,13 +1,13 @@
 import {Component, EventEmitter, Output, Input, OnInit} from '@angular/core'
 import {Router} from "@angular/router";
-import {DataService} from "../data.service";
+import {DataService} from "../../shared/data.service";
 import {SingleLinkData} from "../../shared/single-link-data";
 import {FormGroup, FormControl , Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-edit-create',
-  templateUrl: 'edit-create.component.html',
-  styleUrls: ['edit-create.component.scss']
+  templateUrl: './edit-create.component.html',
+  styleUrls: ['./edit-create.component.scss']
 })
 
 export class EditCreateComponent implements OnInit{
@@ -35,6 +35,7 @@ export class EditCreateComponent implements OnInit{
   onSubmit(){
     if(this.editContent){
       let newData = new SingleLinkData(this.myForm.controls['name'].value, this.myForm.controls['description'].value);
+      this.dataService.onBackUp(this.editContent);
       this.dataService.editContent(this.editContent , newData);
       this.canceled.emit(false);
 
@@ -43,7 +44,6 @@ export class EditCreateComponent implements OnInit{
       this.dataService.createNewGroup(newData);
       this.canceled.emit(false);
     }
-
   }
 
   cancel(){

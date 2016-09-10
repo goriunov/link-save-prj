@@ -1,0 +1,48 @@
+
+<section class="container" *ngIf="isLogIn">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <div class="registration" >
+      <button class="btn btn-default" (click)="sign = true">Sign Up</button> <button (click)="sign = false" class="btn btn-default">Sign In</button>
+    </div>
+    <form  *ngIf="sign" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <fieldset class="form-group">
+        <label>First name:</label>
+        <input formControlName="firstName" type="text" class="form-control">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label>Last Name:</label>
+        <input  formControlName="lastName" type="text" class="form-control">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label>Email:</label>
+        <input formControlName="email" type="email" class="form-control">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label>Password:</label>
+        <input formControlName="password"  type="password" class="form-control">
+      </fieldset>
+
+      <button class="btn btn-primary" type="submit">Sign Up</button>
+
+    </form>
+
+
+    <form *ngIf="!sign" [formGroup]="test" (ngSubmit)="onTest()">
+      <fieldset class="form-group">
+        <label>Email:</label>
+        <input formControlName="email" type="email" class="form-control">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label>Password:</label>
+        <input formControlName="password"  type="password" class="form-control">
+      </fieldset>
+
+      <button class="btn btn-primary" type="submit">Sign In</button>
+
+    </form>
+  </div>
+</section>

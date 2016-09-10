@@ -1,15 +1,15 @@
 import {Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 import {SingleLinkData} from "../../shared/single-link-data";
-import {DataService} from "../../main-content/data.service";
+import {DataService} from "../../shared/data.service";
 import {Http, URLSearchParams} from "@angular/http";
 import {Subscription} from "rxjs";
 
 
 @Component({
   selector: 'app-edit-create-links',
-  templateUrl: 'edit-create-links.component.html',
-  styleUrls: ['edit-create-links.component.scss']
+  templateUrl: './edit-create-links.component.html',
+  styleUrls: ['./edit-create-links.component.scss']
 
 })
 
@@ -34,8 +34,8 @@ export class EditCreateLinksComponent implements OnInit{
     }
 
     this.myForm = new FormGroup({
-      'link': new FormControl(link, Validators.required),
-      'linkName': new FormControl(this.linkName)
+      'link': new FormControl(link  , Validators.required),
+      'linkName': new FormControl({value : this.linkName, disabled: true})
     });
   }
 

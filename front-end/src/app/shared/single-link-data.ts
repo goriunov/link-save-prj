@@ -2,6 +2,7 @@ export class SingleLinkData{
   constructor(public groupName: string,
               public description: string,
               public linkName?: string[],
-              public links?: string[]){}
+              public links?: string[],
+              public _id? : any){}
 
 }

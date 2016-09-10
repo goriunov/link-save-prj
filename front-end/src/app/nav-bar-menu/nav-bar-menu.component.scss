@@ -10,13 +10,6 @@ $textColorNavBar: whitesmoke;
     margin-top: 15px;
   }
 
-  img{
-    margin-right: 6px;
-    margin-top: 6px;
-    height: 35px;
-    width: 35px;
-    border-radius: 50%;
-  }
 
   &:hover,
   &:focus,
@@ -44,8 +37,8 @@ $textColorNavBar: whitesmoke;
 
 
 
-@media screen and (max-width: 430px){
+@media screen and (max-width: 600px){
   .user-name{
-    display:none;
+    //display:none;
   }
 }

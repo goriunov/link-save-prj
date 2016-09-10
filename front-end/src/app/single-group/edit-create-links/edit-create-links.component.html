@@ -4,7 +4,7 @@
   </fieldset>
 
   <fieldset class="form-group" class="hidden">
-    <input class="form-control" placeholder="Name of website" [ngModel]="linkName" formControlName="linkName" disabled>
+    <input class="form-control" placeholder="Name of website" [ngModel]="linkName" formControlName="linkName">
   </fieldset>
   <div class="buttons">
     <button type="submit" class="btn btn-primary" [disabled]=" myForm.valid ? permission : !myForm.valid"><span *ngIf="!permission">{{ singleGroup ? editing : creating}}</span><span *ngIf="permission">Saving...</span></button>
