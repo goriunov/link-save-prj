@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 })
 
 export class UserAuthComponent implements OnInit{
+  err : number= 0;
   myForm: FormGroup;
   test: FormGroup;
   sign: boolean = true;
@@ -19,6 +20,7 @@ export class UserAuthComponent implements OnInit{
   constructor(private authService : AuthService ,private router: Router){}
 
   ngOnInit(){
+    this.err = 0;
     this.isLogIn = false;
     if(localStorage.getItem('token') !== null){
       this.router.navigate(['/dashboard']);
@@ -39,14 +41,28 @@ export class UserAuthComponent implements OnInit{
   }
 
   onSubmit(){
+    this.err = 0;
     let user: User = new User( this.myForm.value.password , this.myForm.value.email , this.myForm.value.firstName ,this.myForm.value.lastName );
     this.authService.signUp(user);
     this.myForm.reset();
+    this.sign = false;
+    this.err = 3;
+    this.authService.err.subscribe(
+      (data) => {
+        this.err  = data;
+      }
+    );
+
   }
 
   onTest(){
+    this.err = 0;
     let user: User = new User( this.test.value.password , this.test.value.email );
     this.authService.signIn(user);
+    this.authService.err.subscribe(
+      (data) => this.err = data
+    );
+
   }
 
 }

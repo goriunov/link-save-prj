@@ -1,10 +1,30 @@
 
 <section class="container" *ngIf="isLogIn">
-  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+
+  <div *ngIf="err == 1" class="col-xs-12 alert alert-danger">
+    <strong>Error!</strong> Wrong password or email please check your credential.
+  </div>
+
+  <div *ngIf="err == 2"  class="col-xs-12 alert alert-warning">
+    <strong>Not activated! </strong> Please check email and activate your account.
+  </div>
+
+  <div *ngIf="err == 3"  class="col-xs-12 alert alert-info">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Activation!</strong> Please check your email and activate linker account.
+  </div>
+
+  <div *ngIf="err == 4" class="col-xs-12 alert alert-danger">
+    <strong>Error!</strong> Account with this email already exist.
+  </div>
+
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2 forms">
     <div class="registration" >
-      <button class="btn btn-default" (click)="sign = true">Sign Up</button> <button (click)="sign = false" class="btn btn-default">Sign In</button>
+      <a (click)="sign = true; err = 0;">Sign Up</a> <a (click)="sign = false; err = 0;" >Sign In</a>
+      <br><br>
     </div>
-    <form  *ngIf="sign" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+    <form  *ngIf="sign" [formGroup]="myForm" (ngSubmit)="onSubmit()" >
       <fieldset class="form-group">
         <label>First name:</label>
         <input formControlName="firstName" type="text" class="form-control">
@@ -24,9 +44,9 @@
         <label>Password:</label>
         <input formControlName="password"  type="password" class="form-control">
       </fieldset>
-
-      <button class="btn btn-primary" type="submit">Sign Up</button>
-
+      <div>
+        <button class="btn btn-primary" [disabled]="!myForm.valid" type="submit">Sign Up</button>
+      </div>
     </form>
 
 
@@ -40,9 +60,10 @@
         <label>Password:</label>
         <input formControlName="password"  type="password" class="form-control">
       </fieldset>
-
-      <button class="btn btn-primary" type="submit">Sign In</button>
-
+      <div>
+        <button class="btn btn-primary"  type="submit">Sign In</button>
+      </div>
     </form>
   </div>
+
 </section>

@@ -1,6 +1,6 @@
 <section class="container">
   <div class=""  *ngFor="let singleData of dataGroup; let i = index ">
-    <div class=" grid-element col-sm-3" (mousemove)="addClass = i"  (mouseleave)="addClass = -1" [ngClass]="addClass==i ? 'hover-grid' : ''" *ngIf="edit != i+'edit' && edit != i+'delete' && edit != i+'add'">
+    <div class=" grid-element col-sm-5 col-md-3" (mousemove)="addClass = i"  (mouseleave)="addClass = -1" [ngClass]="addClass==i ? 'hover-grid' : ''" *ngIf="edit != i+'edit' && edit != i+'delete' && edit != i+'add'">
       <div class="option-buttons">
         <span style="padding-top: 2px; top: 0; position: absolute;" (click)="edit = i+'edit'"><img src="assets/pictures/editButton.png"></span>
         <span style="right: 5px; padding-top: 2px; top: 0; position: absolute; color:red;" (click)="edit = i+'delete'">x</span>
@@ -11,17 +11,17 @@
         <app-list-element [singleData]="singleData"></app-list-element>
       </div>
     </div>
-    <div class="new-element col-sm-3" *ngIf="edit == i+'edit'"><app-edit-create [editContent]="singleData" (canceled)="edit = ''"></app-edit-create></div>
-    <div class="insert-link  new-element col-sm-3" *ngIf="edit == i+'add'"><app-edit-create-links [singleGroup]="singleData"  (canceled)="edit = ''"></app-edit-create-links></div>
+    <div class="new-element col-sm-5 col-md-3" *ngIf="edit == i+'edit'"><app-edit-create [editContent]="singleData" (canceled)="edit = ''"></app-edit-create></div>
+    <div class="insert-link  col-sm-5 new-element col-md-3" *ngIf="edit == i+'add'"><app-edit-create-links [singleGroup]="singleData"  (canceled)="edit = ''"></app-edit-create-links></div>
 
-    <div class="new-element col-sm-3 deleting" *ngIf="edit == i+'delete'">
+    <div class="new-element col-sm-5 col-md-3 deleting" *ngIf="edit == i+'delete'">
       <p>Are you sure that you want to delete this group ?</p>
       <button class="btn btn-danger" (click)="onDelete(singleData)">Yes</button>
       <button class="btn btn-primary" (click)="edit = ''">Not</button>
     </div>
   </div>
 
-  <div class="new-element col-sm-3" *ngIf="createNew"><app-edit-create (canceled)="createNew = false"></app-edit-create></div>
-  <div class="new-create col-sm-3"><a *ngIf="!createNew" (click)="createNew = true">+</a></div>
+  <div class="new-element col-sm-5 col-md-3" *ngIf="createNew"><app-edit-create (canceled)="createNew = false"></app-edit-create></div>
+  <div class="new-create col-sm-5 col-md-3"><a *ngIf="!createNew" (click)="createNew = true">+</a></div>
 
 </section>
