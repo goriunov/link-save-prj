@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output, Input, OnInit} from '@angular/core'
+import {Component, EventEmitter, Output, Input, OnInit } from '@angular/core'
 import {Router} from "@angular/router";
 import {DataService} from "../../shared/data.service";
 import {SingleLinkData} from "../../shared/single-link-data";

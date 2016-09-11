@@ -23,6 +23,15 @@ import { Router } from "@angular/router";
         style({transform: 'translateX(100%)' , opacity: '0'})),
 
       ])
+    ]),
+    trigger('appeared'  , [
+      state('in' , style({
+        opacity: '1.0'
+      })),
+      transition('void => *' , [style({
+        opacity: '0'
+      }) ,
+        animate('0.5s 100ms ease-out')])
     ])
   ]
 })

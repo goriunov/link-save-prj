@@ -35,7 +35,7 @@
 
 <!---->
       <div class="group-new">
-        <div class="new-create col-xs-12" *ngIf="!new" ><a (click)="new = true">+</a></div>
+        <div class="new-create col-xs-12" *ngIf="!new"  ><button (click)="new = true" class="btn">+</button></div>
       </div>
       <div class="links col-xs-12" *ngIf="new"><app-edit-create-links [singleGroup]="singleGroup" (canceled)="new = false" ></app-edit-create-links></div>
 
