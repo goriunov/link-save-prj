@@ -33,6 +33,8 @@ a{
 .group-new{
   text-align: center;
 }
+
+
 .new-create{
 
   text-align: center;
@@ -40,26 +42,20 @@ a{
 
   button{
     color:#337ab7 ;
-    font-size: 35px;
+    font-size: 80px;
     transition: all 0.4s;
     border-radius: 50%;
-    height: 80px;
-    width: 80px;
-    box-shadow: 1px 1px 1px gray;
-    padding: 0;
-    background:#CFD8DC;
-    //padding-bottom: 50px;
-    //padding-right:50px;
-    //padding-left: 50px;
+    line-height: 1.33;
+    padding:0 0 0 0;
+
+    background:#ECEFF1;
     &:hover,
     &:focus,
     &:active{
-      color:#01579B;
-      box-shadow: 2px 2px 2px gray;
+      color: #01579B;
       opacity: 0.9;
       cursor: pointer;
       text-decoration: none;
-      background: #B0BEC5 ;
     }
   }
 

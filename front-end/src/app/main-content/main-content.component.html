@@ -22,6 +22,6 @@
   </div>
 
   <div [@appeared]="'in'" class="new-element col-sm-5 col-md-3" *ngIf="createNew"><app-edit-create (canceled)="createNew = false"></app-edit-create></div>
-  <div [@flyIn]="'in'" class="new-create col-sm-5 col-md-3" *ngIf="!createNew" (click)="createNew = true"><button class="btn">+</button></div>
+  <div [@flyIn]="'in'" class="new-create col-sm-5 col-md-3" *ngIf="!createNew" (click)="createNew = true"><button class="btn"><i class=" glyphicon glyphicon-plus-sign"></i></button></div>
 
 </section>
