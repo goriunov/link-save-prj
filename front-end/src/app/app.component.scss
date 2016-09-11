@@ -1,4 +1,4 @@
-$topMenuColor : linear-gradient(to right , #01579B, #0288D1 , #01579B);
+$topMenuColor : to right , #01579B, #0288D1 , #01579B;
 
 .container{
   margin-top: 20px
@@ -15,7 +15,13 @@ app-left-menu{
 }
 
 aside{
-  background:$topMenuColor;
+
+  background-color: #0288D1;
+  background-image: -webkit-linear-gradient($topMenuColor);
+  background-image: -moz-linear-gradient($topMenuColor);
+  background-image: -ms-linear-gradient($topMenuColor);
+  background-image: -o-linear-gradient($topMenuColor);
+  background-image: linear-gradient($topMenuColor);
   border-bottom: 3px solid #0277BD;
   height: 65px;
   padding-top: 7px
@@ -23,7 +29,12 @@ aside{
 .affix {
   top: 0;
   width: 100%;
-  background: $topMenuColor;
+  background-color: #0288D1;
+  background-image: -webkit-linear-gradient($topMenuColor);
+  background-image: -moz-linear-gradient($topMenuColor);
+  background-image: -ms-linear-gradient($topMenuColor);
+  background-image: -o-linear-gradient($topMenuColor);
+  background-image: linear-gradient($topMenuColor);
 }
 
 
