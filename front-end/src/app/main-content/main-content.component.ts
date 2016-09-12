@@ -31,7 +31,7 @@ import { Router } from "@angular/router";
       transition('void => *' , [style({
         opacity: '0'
       }) ,
-        animate('0.5s 100ms ease-out')])
+        animate('0.2s ease-out')])
     ])
   ]
 })

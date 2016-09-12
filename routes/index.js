@@ -13,9 +13,11 @@ router.get('/get-title/', function(req, res, next) {
   var client = new MetaInspector(req.query.link, {});
   console.log('Getting title');
 
+
+
   if(req.query.link == 'new'){
     res.status(200).json({
-      'title': "Link-Do-Not-Know-Title :)"
+      'title': "Link somewhere"
     });
 
   }else{

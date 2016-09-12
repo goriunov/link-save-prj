@@ -9,7 +9,7 @@ $topMenuColor : to right , #01579B, #0288D1 , #01579B;
 
 //Left menu bar and button on small position
 app-left-menu{
-  height: 45px;
+  height: 55px;
   box-shadow: 3px 3px 3px gray;
   z-index: 1000;
 }
@@ -27,6 +27,7 @@ aside{
   padding-top: 7px
 }
 .affix {
+  padding-top: 10px;
   top: 0;
   width: 100%;
   background-color: #0288D1;

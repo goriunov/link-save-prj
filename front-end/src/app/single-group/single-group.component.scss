@@ -1,3 +1,19 @@
+.btn-back{
+  padding : 5px;
+  text-align: center;
+  z-index: 10000 ;
+  position: fixed;
+  left: 15px;
+  top: 10px;
+  font-size: 30px;
+  opacity: 0.5;
+  color: whitesmoke;
+  &:hover{
+    cursor: pointer;
+    opacity: 1.0;
+  }
+}
+
 .group-body{
   .links{
     margin-top: 5px;

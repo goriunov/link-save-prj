@@ -1,15 +1,17 @@
 $textColorNavBar: #FAFAFA;
 
+section{
+  height: 20px;
+}
+
+
 .image,
 .user-name{
+  position: absolute;
+  right: 15px;
+  top: 14px;
   color: $textColorNavBar;
   display: inline-block;
-  float:right;
-  h5{
-    margin-right: 10px;
-    margin-top: 15px;
-  }
-
 
   &:hover,
   &:focus,
