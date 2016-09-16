@@ -3,18 +3,30 @@ section{
   box-shadow: 2px 2px 2px gray;
 }
 
-form{
-  .buttons,
-  h3{
-    text-align: center;
-  }
-
-  button{
-    width: 69px;
-  }
-  textarea {
-    resize: none;
-  }
+form .buttons,
+  form h3{
+  text-align: center;
 }
+
+form button{
+  width: 69px;
+
+}
+
+fieldset{
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+
+}
+fieldset button{
+  width: auto;
+}
+
+
+form textarea {
+  resize: none;
+}
+
+
 
 

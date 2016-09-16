@@ -50,10 +50,22 @@ export class EditCreateLinksComponent implements OnInit{
         (data) => {
           this.linkName = data.title;
           if (this.index >= 0) {
-            this.dataService.editLink(this.singleGroup, this.index, this.linkName, this.myForm.controls['link'].value);
+            var link = this.myForm.controls['link'].value;
+            if (!link.match(/^[a-zA-Z]+:\/\//))
+            {
+              link = 'http://' + link;
+              console.log(link);
+            }
+            this.dataService.editLink(this.singleGroup, this.index, this.linkName, link);
             this.canceled.emit(false);
           } else {
-            this.dataService.createNewLink(this.singleGroup, this.linkName, this.myForm.controls['link'].value);
+            var link = this.myForm.controls['link'].value;
+            if (!link.match(/^[a-zA-Z]+:\/\//))
+            {
+              link = 'http://' + link;
+              console.log(link);
+            }
+            this.dataService.createNewLink(this.singleGroup, this.linkName, link);
             this.canceled.emit(false);
           }
         },
@@ -62,8 +74,8 @@ export class EditCreateLinksComponent implements OnInit{
           console.log(err);
         });
     setTimeout(()=> {
-      this.editing = 'Please try again';
-      this.creating = 'Please try again';
+      this.editing = 'Try again';
+      this.creating = 'Try again';
       this.subscribe.unsubscribe();
       this.permission = false;
     }, 10000);

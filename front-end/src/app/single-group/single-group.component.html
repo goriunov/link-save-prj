@@ -12,11 +12,11 @@
           <h2>{{singleGroup.groupName}} </h2>
         </div>
         <div class ="group-name">
-          | {{singleGroup.links? singleGroup.links.length : '0'}} links
+          | {{singleGroup.links? singleGroup.links.length : '0'}} {{singleGroup.links.length < 2 ? 'link': 'links'}}
         </div>
       </header>
       <br>
-      <span class="description">{{singleGroup.description}}</span>
+      <span class="description">{{singleGroup.description ? singleGroup.description : 'No description' }}</span>
       <hr>
 <!---->
 
@@ -24,7 +24,7 @@
 
           <div class="panel panel-primary" *ngIf = " edit != i+'edit'">
             <div class="panel-body">
-              <div style="float: right">
+              <div class="options" style="float: right">
                 <a (click)="edit = i+'edit'">edit</a>
                 <a (click)="onDelete(i)">delete</a>
               </div>
@@ -40,7 +40,7 @@
 
 <!---->
       <div class="group-new">
-        <div class="new-create col-xs-12" *ngIf="!new"  ><button (click)="new = true" class="btn"><i class=" glyphicon glyphicon-plus-sign"></i></button></div>
+        <div class="new-create col-xs-12" *ngIf="!new"  ><span (click)="new = true" class="btn"><i class=" glyphicon glyphicon-plus-sign" popover="Create new link" [popoverOnHover]="true"></i></span></div>
       </div>
       <div class="links col-xs-12" *ngIf="new"><app-edit-create-links [singleGroup]="singleGroup" (canceled)="new = false" ></app-edit-create-links></div>
 

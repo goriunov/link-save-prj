@@ -7,36 +7,45 @@ section{
 
 .image,
 .user-name{
+  font-family: 'Baloo Tamma', cursive;
   position: absolute;
   right: 15px;
-  top: 14px;
+  top: 18px;
   color: $textColorNavBar;
   display: inline-block;
-
-  &:hover,
-  &:focus,
-  &:active{
-    cursor: pointer;
-    color: #BDBDBD;
-  }
 
 }
 
 
+.image:hover,
+  .image:focus,
+  .image:active,
+  .user-name:hover,
+  .user-name:focus,
+  .user-name:active{
+
+  cursor: pointer;color: #BDBDBD;
+}
+
+
 .logo{
+  font-family: 'Baloo Tamma', cursive;
   color:$textColorNavBar;
   display:inline-block;
-  a{
-    color:$textColorNavBar;
-    text-decoration: none;
-    &:hover{
-      color: #BDBDBD;
-    }
-  }
-  h4{
-    margin-top: 15px;
-    margin-left: 10px;
-  }
+}
+
+
+.logo a{color:$textColorNavBar;text-decoration: none;
+}
+
+
+.logo a:hover{color: #BDBDBD;
+}
+
+
+.logo h4{
+  margin-top: 22px;
+  //margin-left: 10px;
 }
 
 

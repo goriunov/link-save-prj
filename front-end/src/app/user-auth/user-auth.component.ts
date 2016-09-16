@@ -11,12 +11,12 @@ import {Router} from "@angular/router";
   animations: [
     trigger('view', [
       state('inactive', style({
-        opacity: '0',
+        color: 'white',
         // transform: 'scale(0)',
         display: 'none'
       })),
       state('active',   style({
-        opacity: '1',
+        color: 'black',
         // transform: 'scale(1)'
       })),
       state('open', style({
@@ -28,10 +28,10 @@ import {Router} from "@angular/router";
       state('none', style({
         height: '*',
       })),
-      transition('inactive => active', animate('200ms ease-in')),
-      transition('open <=> close', animate('200ms ease-in')),
-      transition('none <=> open', animate('200ms ease-in')),
-      transition('none <=> close', animate('200ms ease-in')),
+      transition('inactive => active', animate('300ms ease-in')),
+      transition('open <=> close', animate('100ms ease-in')),
+      transition('none <=> open', animate('100ms ease-in')),
+      transition('none <=> close', animate('100ms ease-in')),
     ])
   ]
 
@@ -56,22 +56,22 @@ export class UserAuthComponent implements OnInit{
     }else {
       this.isLogIn = true;
       this.test = new FormGroup({
-        'email': new FormControl('', Validators.required),
-        'password': new FormControl('', Validators.required)
+        'email': new FormControl('', [Validators.required , this.onlySpacesValidator]),
+        'password': new FormControl('', [Validators.required , this.onlySpacesValidator])
       });
 
       this.myForm = new FormGroup({
-        'firstName': new FormControl('', Validators.required),
-        'lastName': new FormControl('', Validators.required),
-        'email': new FormControl('', Validators.required),
-        'password': new FormControl('', Validators.required)
+        'firstName': new FormControl('', [Validators.required , this.onlySpacesValidator]),
+        'lastName': new FormControl('', [Validators.required , this.onlySpacesValidator]),
+        'email': new FormControl('', [Validators.required , this.onlySpacesValidator]),
+        'password': new FormControl('', [Validators.required , this.onlySpacesValidator])
       });
     }
   }
 
   onSubmit(){
     this.err = 0;
-    let user: User = new User( this.myForm.value.password , this.myForm.value.email , this.myForm.value.firstName ,this.myForm.value.lastName );
+    let user: User = new User( this.myForm.value.password , this.myForm.value.email.toLowerCase() , this.myForm.value.firstName ,this.myForm.value.lastName );
     this.authService.signUp(user);
     this.myForm.reset();
     this.sign = false;
@@ -86,7 +86,7 @@ export class UserAuthComponent implements OnInit{
 
   onTest(){
     this.err = 0;
-    let user: User = new User( this.test.value.password , this.test.value.email );
+    let user: User = new User( this.test.value.password, this.test.value.email.toLowerCase()  );
     this.authService.signIn(user);
     this.authService.err.subscribe(
       (data) => this.err = data
@@ -105,6 +105,18 @@ export class UserAuthComponent implements OnInit{
         this.signInA = 'active';
         this.formFrame ='close';
       }
+  }
+
+
+
+
+  onlySpacesValidator(control: FormControl) : {[s: string]: boolean}{
+    if(/\S/.test(control.value)){
+      return null;
+    }else{
+      return {name: true}
+    }
+
   }
 
 

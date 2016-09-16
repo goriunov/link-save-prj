@@ -14,6 +14,7 @@ export class EditCreateComponent implements OnInit{
   @Input() editContent: SingleLinkData;
   @Output() canceled: EventEmitter<any> = new EventEmitter();
   myForm: FormGroup;
+  needDesc: boolean = false;
 
 
   constructor(private router: Router , private dataService: DataService){}
@@ -26,21 +27,33 @@ export class EditCreateComponent implements OnInit{
       description = this.editContent.description;
     }
     this.myForm = new FormGroup({
-      'name': new FormControl(name , Validators.required),
-      'description': new FormControl(description , Validators.required)
+      'name': new FormControl(name , [Validators.required , this.onlySpacesValidator]),
+      'description': new FormControl(description)
     });
 
   }
 
   onSubmit(){
     if(this.editContent){
-      let newData = new SingleLinkData(this.myForm.controls['name'].value, this.myForm.controls['description'].value);
+      var description = this.myForm.controls['description'].value;
+      if(/\S/.test(description)){
+      }else{
+        description = '';
+      }
+
+      let newData = new SingleLinkData(this.myForm.controls['name'].value, description);
       this.dataService.onBackUp(this.editContent);
       this.dataService.editContent(this.editContent , newData);
       this.canceled.emit(false);
 
     }else {
-      let newData = new SingleLinkData(this.myForm.controls['name'].value, this.myForm.controls['description'].value);
+
+      var description = this.myForm.controls['description'].value;
+      if(/\S/.test(description)){
+      }else{
+        description = '';
+      }
+      let newData = new SingleLinkData(this.myForm.controls['name'].value, description);
       this.dataService.createNewGroup(newData);
       this.canceled.emit(false);
     }
@@ -48,6 +61,17 @@ export class EditCreateComponent implements OnInit{
 
   cancel(){
     this.canceled.emit(false);
+  }
+
+
+  onlySpacesValidator(control: FormControl) : {[s: string]: boolean}{
+
+    if(/\S/.test(control.value)){
+      return null;
+    }else{
+      return {name: true}
+    }
+
   }
 
 }

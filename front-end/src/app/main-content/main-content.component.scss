@@ -1,31 +1,42 @@
+ div{
+  h1{
+    margin-bottom: 30px;
+    font-family: 'Oswald', sans-serif;
+  }
+}
 
 .grid-element{
+  -webkit-transition: all 0.2s;
   transition: all 0.2s;
   height: 200px;
   margin: 10px;
-  background: white;
-  border: 1px solid #337ab7;
+  background: #FAFAFA;
+  //border: 1px solid #337ab7;
   box-shadow: 2px 2px 2px gray;
-  overflow: hidden;
+  word-wrap:break-word;
+  word-break: break-all;
+  overflow-wrap: break-word;
   padding-bottom: 5px;
-
-  &:hover,
-  &:focus,
-  &:active,
-  .hover-grid{
-    background: #FAFAFA;
-
-    .main-content{
-      transition: all 0.2s;
-      margin-top: 35px;
-      opacity: 0.3;
-    }
-    .option-buttons{
-      display: block;
-      opacity: 1.0;
-
-    }
-  }
+  //overflow-y:hidden;
+}
+.grid-element:hover,
+  .grid-element:focus,
+  .grid-element:active,
+  .grid-element .hover-grid{
+  background: #FfFfFf;
+}
+.grid-element:hover .main-content,.grid-element:focus .main-content,.grid-element:active .main-content,.grid-element .hover-grid .main-content{
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  margin-top: 40px;
+  font-size: 10px;
+  opacity: 0.2;
+  height: 100px;
+  //overflow-wrap: break-word;
+}
+.grid-element:hover .option-buttons,.grid-element:focus .option-buttons,.grid-element:active .option-buttons,.grid-element .hover-grid .option-buttons{
+  display: block;
+  opacity: 1.0;
 }
 
 .insert-link{
@@ -33,37 +44,44 @@
 }
 
 .option-buttons{
+  -webkit-transition: all 0.2s;
   transition: all 0.2s;
   opacity: 0.5;
   display: none;
-    span{
-      z-index: 10;
-      transition: all 0.2s;
-      font-size: 20px;
-      margin: 10px;
-      span{
-        &:hover,
-        &:focus,
-        &:active{
-          margin-top: 8px;
-          cursor: pointer;
-        }
-      }
+  z-index: 100;
 
-      img{
-         width: 20px;
-       }
-    }
+}
+
+.option-buttons span{
+  word-break: break-all;
+  z-index: 100;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.option-buttons span span:hover,
+        .option-buttons span span:focus,
+        .option-buttons span span:active{
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.option-buttons span img{
+  width: 20px;
 }
 
 .deleting{
   text-align: center;
-  p{
-    margin-top: 30px;
-  }
+}
+
+.deleting p{
+  margin-top: 30px;
 }
 
 .new-element{
+  font-family: 'Oswald', sans-serif;
   height: 200px;
   padding: 10px;
   margin: 10px;
@@ -73,38 +91,41 @@
 
 .new-create{
 
-  text-align: center;
   vertical-align: middle;
-
-  button{
-    color:#337ab7 ;
-    font-size: 80px;
-    transition: all 0.4s;
-    border-radius: 50%;
-    line-height: 1.33;
-    padding:0 0 0 0;
-    background:#ECEFF1;
-    &:hover ,
-    &:focus ,
-    &:active{
-      outline: none;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      color: #01579B;
-      opacity: 0.9;
-      cursor: pointer;
-      text-decoration: none;
-      border: 1px solid #ECEFF1;
-    }
-  }
+  margin-top: 70px;
+  text-align: center;
 
 }
 
 
+.new-create span{
+  color:#546E7A;
+  font-size: 80px;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  border-radius: 50%;
+  line-height: 1.33;
+  padding:0 0 0 0;
+}
+
+.new-create span:hover,
+    .new-create span:focus,
+    .new-create span:active{
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  color: #01579B;
+  opacity: 0.9;
+  cursor: pointer;
+  text-decoration: none;
+  //border: 1px solid #ECEFF1;
+}
+
+
+
+
 @media screen and (min-width: 768px){
-  .new-create{
-    margin-top: 70px;
-    text-align: center;
-  }
+
+
 }
 
 @media screen and (max-width: 991px){
@@ -118,7 +139,7 @@
 
 @media screen and (max-width: 768px){
   .grid-element{
-    height: 170px;
+    height: 200px;
   }
   .new-element{
     height: 200px;
@@ -131,6 +152,15 @@
   }
   .new-element{
     height: 200px;
+  }
+}
+
+@media screen and (max-width: 576px){
+  .col-xs-5{
+    width: 100%;
+  }
+  .new-create{
+    margin-top:0;
   }
 }
 

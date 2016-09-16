@@ -14,6 +14,7 @@ import { EditCreateLinksComponent } from "./single-group/edit-create-links/edit-
 import {HttpModule} from "@angular/http";
 import {UserAuthComponent} from "./user-auth/user-auth.component";
 import {AuthService} from "./shared/auth.service";
+import { PopoverModule } from 'ng2-popover';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {AuthService} from "./shared/auth.service";
     CommonModule,
     FormsModule,
     HttpModule,
-    Routing
+    Routing,
+    PopoverModule
   ],
   providers: [DataService , AuthService , {provide: LocationStrategy, useClass: HashLocationStrategy}],
   entryComponents: [AppComponent],

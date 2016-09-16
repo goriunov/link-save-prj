@@ -4,8 +4,10 @@
     <input type="text" class="form-control" maxlength="30" placeholder="New group name" formControlName="name">
   </fieldset>
 
-  <fieldset class="form-group">
-    <textarea  class="form-control" rows="3" maxlength="80" placeholder="Description" formControlName="description"></textarea>
+
+  <fieldset class="form-group " >
+    <!--<button  class=" desc btn btn-default" *ngIf="!needDesc" (click)="needDesc = true" type="button">Description</button>-->
+    <textarea class="form-control" rows="3" maxlength="80" placeholder="Description (optional)" formControlName="description"></textarea>
   </fieldset>
   <div class="buttons">
     <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">{{editContent ? 'Save' : 'Create'}}</button>

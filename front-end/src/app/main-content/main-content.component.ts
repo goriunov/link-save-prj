@@ -3,6 +3,7 @@ import { SingleLinkData } from "../shared/single-link-data";
 import { DataService } from "../shared/data.service";
 import { Router } from "@angular/router";
 
+declare var $:any;
 
 @Component({
   selector: 'app-main-content',
@@ -26,10 +27,10 @@ import { Router } from "@angular/router";
     ]),
     trigger('appeared'  , [
       state('in' , style({
-        opacity: '1.0'
+        transform: 'rotateX(0deg)'
       })),
       transition('void => *' , [style({
-        opacity: '0'
+        transform: 'rotateX(180deg)'
       }) ,
         animate('0.2s ease-out')])
     ])
@@ -40,16 +41,23 @@ export class MainContentComponent implements OnInit{
   createNew = false;
   edit = '';
   dataGroup: SingleLinkData[] = null;
+  fullName: string;
+  tooltipOn: boolean = true;
 
   constructor(private dataService : DataService , private router: Router){}
 
   ngOnInit(){
+
     this.dataService.getItems();
     this.dataService.dataEmmit.subscribe(
       (resource)=>{
         this.dataGroup = resource;
       }
-    )
+    );
+
+    this.dataService.navName.subscribe(
+      (name)=> this.fullName = name
+    );
   }
 
   onDelete(dataToDelete : SingleLinkData){

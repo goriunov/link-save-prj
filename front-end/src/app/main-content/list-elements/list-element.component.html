@@ -1,13 +1,15 @@
-<header>
-  <div class="group-counter">
-    {{singleData.links? singleData.links.length : '0'}}
-  </div>
-
-  <div class ="group-name">
-    {{singleData.groupName}}
-  </div>
-</header>
-<hr>
 <section>
-    {{singleData.description}}
+  <header>
+    <div class="group-counter">
+      {{singleData.links? singleData.links.length : '0'}}
+    </div>
+
+    <div class ="group-name">
+      <h4>{{singleData.groupName}}</h4>
+    </div>
+  </header>
+  <hr>
+  <section class="desc">
+      {{singleData.description != ''? singleData.description : 'No description'  }}
+  </section>
 </section>

@@ -6,23 +6,30 @@
   left: 15px;
   top: 10px;
   font-size: 30px;
-  opacity: 0.5;
+  //opacity: 0.5;
   color: whitesmoke;
   &:hover{
-    cursor: pointer;
-    opacity: 1.0;
+    color: #B0BEC5;
   }
 }
 
-.group-body{
-  .links{
-    margin-top: 5px;
-  }
+.btn-back:hover{
+  cursor: pointer;
+  opacity: 1.0;
 }
 
+.group-body .links{
+  margin-top: 5px;
+}
+
+.options{
+  margin-left:10px;
+  margin-bottom: 10px;
+}
 
 .panel-body ,
 .panel-footer{
+  font-family: 'Oswald', sans-serif;
   word-wrap:break-word;
 }
 
@@ -32,13 +39,10 @@ hr{
   border: 1px solid lightgray;
 }
 
-a{
-  &:hover,
-  &:focus,
-  &:active{
-    cursor: pointer;
-  }
-
+a:hover,
+  a:focus,
+  a:active{
+  cursor: pointer;
 }
 .container{
   margin: 10px;
@@ -56,51 +60,58 @@ a{
   text-align: center;
   vertical-align: middle;
 
-  button{
-    color:#337ab7 ;
-    font-size: 80px;
-    transition: all 0.4s;
-    border-radius: 50%;
-    line-height: 1.33;
-    padding:0 0 0 0;
+}
 
-    background:#ECEFF1;
-    &:hover,
-    &:focus,
-    &:active{
-      outline: none;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
-      color: #01579B;
-      opacity: 0.9;
-      cursor: pointer;
-      text-decoration: none;
-    }
-  }
+.new-create span{
+  color:#546E7A;
+  font-size: 80px;
+  -webkit-transition : all 0.4s;
+  transition: all 0.4s;
+  border-radius: 50%;
+  line-height: 1.33;
+  padding:0 0 0 0;
+  background:#ECEFF1;
+}
 
+
+.new-create span:hover,
+.new-create span:focus,
+.new-create span:active{
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  color: #01579B;
+  opacity: 0.9;
+  cursor: pointer;
+  text-decoration: none;
+  //border: 1px solid #ECEFF1;
 }
 
 .description{
+  //text-align: center;
   margin-left: 40px;
   color: darkgray;
 }
 
 header{
+  font-family: 'Oswald', sans-serif;
   padding-top: 10px;
   margin-left: 40px;
   display: inline-block;
-  .group-counter{
-    float: left;
-    font-size: 30px;
-    text-align: center;
+}
 
-  }
+header .group-counter{
+  font-family: 'Oswald', sans-serif;
+  float: left;
+  font-size: 30px;
+  text-align: center;
+}
 
-  .group-name{
-    color: darkgray;
-    float:left;
-    margin-top: 30px;
-    margin-left: 10px;
-    min-width: 50px;
-  }
+header .group-name{
+  font-family: 'Oswald', sans-serif;
+  color: darkgray;
+  float:left;
+  margin-top: 30px;
+  margin-left: 10px;
+  min-width: 50px;
 }
