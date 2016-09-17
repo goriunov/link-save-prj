@@ -1,10 +1,7 @@
+// This file includes polyfills needed by Angular 2 and is loaded before
+// the app. You can add your own extra polyfills to this file.
 
-// Polyfills
-
-import 'ie-shim'; // Internet Explorer 9 support
-
-// import 'core-js/es6';
-// Added parts of es6 which are necessary for your project or your browser support requirements.
+import 'ie-shim';
 import 'core-js/es6/symbol';
 import 'core-js/es6/object';
 import 'core-js/es6/function';
@@ -18,17 +15,18 @@ import 'core-js/es6/array';
 import 'core-js/es6/regexp';
 import 'core-js/es6/map';
 import 'core-js/es6/set';
-import 'core-js/es6/weak-map';
-import 'core-js/es6/weak-set';
-import 'core-js/es6/typed';
 import 'core-js/es6/reflect';
-// see issue https://github.com/AngularClass/angular2-webpack-starter/issues/709
-// import 'core-js/es6/promise';
 
-import './assets/polyfill/classList.min'
-import './assets/polyfill/intl.min'
-import './assets/polyfill/formdata'
+
+
+import 'core-js/client/shim';
+import '../polyfill/classList';
+import '../polyfill/formdata';
+import '../polyfill/intl';
+import '../polyfill/web-animation.min';
+
+
+
 
 import 'core-js/es7/reflect';
 import 'zone.js/dist/zone';
-import 'zone.js/dist/long-stack-trace-zone';

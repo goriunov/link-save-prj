@@ -17,6 +17,7 @@ import {Router} from "@angular/router";
       })),
       state('active',   style({
         color: 'black',
+        display: 'block'
         // transform: 'scale(1)'
       })),
       state('open', style({
