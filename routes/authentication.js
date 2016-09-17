@@ -108,7 +108,7 @@ router.get('/verify/:id' , function(req , res ,next){
                 if(err){
                     res.status(404).send('<h1>Error can not verify your account</h1>')
                 }else{
-                    res.redirect(req.protocol + '://' + req.get('host'));
+                    res.redirect(req.protocol + '://' + req.get('host') +'/#/authorization/sign-in');
                 }
             });
 

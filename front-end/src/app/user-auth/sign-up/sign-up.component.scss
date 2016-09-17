@@ -1,0 +1,25 @@
+.registration{
+  text-align: center;
+}
+
+
+.registration a{
+  font-size: 18px;
+  margin: 10px;
+}
+
+.registration a:hover{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.forms{
+  font-family: 'Oswald', sans-serif;
+  background: #FAFAFA;
+  //border: 1px solid #337ab7;
+  padding: 20px;
+}
+
+.forms form div{
+  text-align: center;
+}

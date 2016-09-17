@@ -1,24 +1,33 @@
-.registration{
+.carousel-inner{
   text-align: center;
+
+  height: 300px;
+}
+.container{
+  margin-top: 15px;
 }
 
-
-.registration a{
-  font-size: 18px;
-  margin: 10px;
+span .right{
+    background:#ECEFF1;
+    border-radius: 15px;
+  background: rgba(236,239,241,0.8);
+  background: -moz-linear-gradient(left, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(236,239,241,0.8)), color-stop(100%, rgba(250,250,250,1)));
+  background: -webkit-linear-gradient(left, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
+  background: -o-linear-gradient(left, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
+  background: -ms-linear-gradient(left, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
+  background: linear-gradient(to right, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eceff1', endColorstr='#fafafa', GradientType=1 );
 }
 
-.registration a:hover{
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.forms{
-  background: white;
-  border: 1px solid #337ab7;
-  padding: 20px;
-}
-
-.forms form div{
-  text-align: center;
+span  .left {
+  border-radius: 15px;
+  background: rgba(236,239,241,0.8);
+  background: -moz-linear-gradient(right, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
+  background: -webkit-gradient(right top, left top, color-stop(0%, rgba(236,239,241,0.8)), color-stop(100%, rgba(250,250,250,1)));
+  background: -webkit-linear-gradient(right, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
+  background: -o-linear-gradient(right, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
+  background: -ms-linear-gradient(right, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
+  background: linear-gradient(to left, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr=' #eceff1', GradientType=1 );
 }

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ApplicationRef } from '@angular/core';
+import { NgModule } from '@angular/core';
 import {CommonModule, LocationStrategy, HashLocationStrategy} from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -15,6 +15,9 @@ import {HttpModule} from "@angular/http";
 import {UserAuthComponent} from "./user-auth/user-auth.component";
 import {AuthService} from "./shared/auth.service";
 import { PopoverModule } from 'ng2-popover';
+import {SignUpComponent} from "./user-auth/sign-up/sign-up.component";
+import {SignInComponent} from "./user-auth/sign-in/sign-in.component";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { PopoverModule } from 'ng2-popover';
     EditCreateComponent,
     SingleGroupComponent,
     EditCreateLinksComponent,
-    UserAuthComponent
+    UserAuthComponent,
+    SignUpComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +38,7 @@ import { PopoverModule } from 'ng2-popover';
     CommonModule,
     FormsModule,
     HttpModule,
+    RouterModule,
     Routing,
     PopoverModule
   ],
