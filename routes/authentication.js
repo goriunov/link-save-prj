@@ -6,7 +6,7 @@ var jwt = require('jsonwebtoken');
 var nodemailer = require('nodemailer');
 
 
-var smtpTransport = nodemailer.createTransport('smtps://verifylinker%40gmail.com:SomeLink1542637890@smtp.gmail.com');
+
 
 
 
