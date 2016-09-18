@@ -11,7 +11,7 @@ var routes = require('./routes/index');
 var database = require('./routes/database');
 var user = require('./routes/authentication');
 
-mongoose.connect('linker:linker154263@ds044679.mlab.com:44679/linker');
+
 mongoose.Promise = global.Promise;
 
 var app = express();
