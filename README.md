@@ -13,6 +13,7 @@
 5. Go to the localhost:3000
 
 //Only if you want to change code
+##
 4. Navigate to the front-end folder .
 5. Run comand in Terminal(Console) 'npm install'.
 6. Navigate to application folder in a project
