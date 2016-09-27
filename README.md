@@ -2,6 +2,10 @@
 
 ##Project was builded for learning reason, tools used: NodeJS, MongoDB(mongoose), Angular2 Releas, HTML5, CSS3, Bootstrap, Gulp + some other. 
 
+if you do not want to registrate use test accaount : 
+#
+email : tiz000028z@myntec.ac  
+password: test
 ###Live link : http://link-keeper.azurewebsites.net/
 ###Website may load slowly because it is using hosting which turn off server if no one use it. Therefor be patient 
 
