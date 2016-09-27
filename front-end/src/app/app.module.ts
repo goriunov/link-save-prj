@@ -18,6 +18,8 @@ import { PopoverModule } from 'ng2-popover';
 import {SignUpComponent} from "./user-auth/sign-up/sign-up.component";
 import {SignInComponent} from "./user-auth/sign-in/sign-in.component";
 import {RouterModule} from "@angular/router";
+import {GroupFilterPipe} from "./main-content/filter.pipe";
+import {LinkFilterPipe} from "./single-group/linkFilter.pipe";
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import {RouterModule} from "@angular/router";
     EditCreateLinksComponent,
     UserAuthComponent,
     SignUpComponent,
-    SignInComponent
+    SignInComponent,
+    GroupFilterPipe,
+    LinkFilterPipe
   ],
   imports: [
     BrowserModule,

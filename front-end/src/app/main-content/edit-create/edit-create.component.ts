@@ -14,7 +14,6 @@ export class EditCreateComponent implements OnInit{
   @Input() editContent: SingleLinkData;
   @Output() canceled: EventEmitter<any> = new EventEmitter();
   myForm: FormGroup;
-  needDesc: boolean = false;
 
 
   constructor(private router: Router , private dataService: DataService){}

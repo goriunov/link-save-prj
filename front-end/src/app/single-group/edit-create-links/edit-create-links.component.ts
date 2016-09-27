@@ -23,19 +23,21 @@ export class EditCreateLinksComponent implements OnInit{
   permission: any = false;
   editing = 'Save';
   creating = 'Create';
+  changeName: boolean = false;
 
   constructor(private dataService: DataService , private http: Http){}
 
   ngOnInit(){
     let link = '';
     if(this.index >= 0) {
+      this.changeName = true;
       link = this.singleGroup.links[this.index];
       this.linkName = this.singleGroup.linkName[this.index];
     }
 
     this.myForm = new FormGroup({
-      'link': new FormControl(link  , Validators.required),
-      'linkName': new FormControl({value : this.linkName, disabled: true})
+      'link': new FormControl(link  , [Validators.required , this.onlySpacesValidator]),
+      'linkName': new FormControl({value : this.linkName} ,[Validators.required , this.onlySpacesValidator])
     });
   }
 
@@ -44,45 +46,57 @@ export class EditCreateLinksComponent implements OnInit{
     let params = new URLSearchParams();
     params.set('link', this.myForm.controls['link'].value);
 
-    this.subscribe = this.http.get('/get-title/', {search: params})
-      .map((data) => data.json())
-      .subscribe(
-        (data) => {
-          this.linkName = data.title;
-          if (this.index >= 0) {
-            var link = this.myForm.controls['link'].value;
-            if (!link.match(/^[a-zA-Z]+:\/\//))
-            {
-              link = 'http://' + link;
-              console.log(link);
-            }
-            this.dataService.editLink(this.singleGroup, this.index, this.linkName, link);
-            this.canceled.emit(false);
-          } else {
-            var link = this.myForm.controls['link'].value;
-            if (!link.match(/^[a-zA-Z]+:\/\//))
-            {
-              link = 'http://' + link;
-              console.log(link);
-            }
-            this.dataService.createNewLink(this.singleGroup, this.linkName, link);
-            this.canceled.emit(false);
-          }
-        },
-        (err) => {
-          this.permission = false;
-          console.log(err);
-        });
-    setTimeout(()=> {
-      this.editing = 'Try again';
-      this.creating = 'Try again';
-      this.subscribe.unsubscribe();
-      this.permission = false;
-    }, 10000);
+
+    if (this.index >= 0) {
+      var link = this.myForm.controls['link'].value;
+      if (!link.match(/^[a-zA-Z]+:\/\//))
+      {
+        link = 'http://' + link;
+        // console.log(link);
+      }
+      this.dataService.editLink(this.singleGroup, this.index, this.myForm.controls['linkName'].value, link);
+      this.canceled.emit(false);
+    } else {
+      this.subscribe = this.http.get('/get-title/', {search: params})
+          .map((data) => data.json())
+          .subscribe(
+              (data) => {
+                this.linkName = data.title;
+                var link = this.myForm.controls['link'].value;
+                if (!link.match(/^[a-zA-Z]+:\/\//)) {
+                  link = 'http://' + link;
+                }
+                this.dataService.createNewLink(this.singleGroup, this.linkName, link);
+                this.canceled.emit(false);
+
+              },
+              (err) => {
+                this.permission = false;
+                // console.log(err);
+              });
+      setTimeout(()=> {
+        this.editing = 'Try again';
+        this.creating = 'Try again';
+        this.subscribe.unsubscribe();
+        this.permission = false;
+      }, 10000);
+
+    }
 
   }
 
   cancel(){
     this.canceled.emit(false);
+  }
+
+
+  onlySpacesValidator(control: FormControl) : {[s: string]: boolean}{
+
+    if(/\S/.test(control.value)){
+      return null;
+    }else{
+      return {name: true}
+    }
+
   }
 }

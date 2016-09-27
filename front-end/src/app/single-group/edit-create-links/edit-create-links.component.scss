@@ -1,5 +1,24 @@
+$mainColor : #3F51B5;
+
 .buttons{
   text-align: center;
+}
+
+.btn{
+  border-radius: 0;
+}
+.btn-primary{
+  background: $mainColor;
+
+  &:hover{
+    background: #5C6BC0;
+  }
+}
+
+.btn:hover{
+  -webkit-box-shadow: 2px 2px 2px rgba(128,128,128,1);
+  -moz-box-shadow: 2px 2px 2px  rgba(128,128,128,1);
+  box-shadow: 2px 2px 2px 0px rgba(128,128,128,1);
 }
 
 

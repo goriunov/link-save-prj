@@ -1,5 +1,10 @@
+$mainColor : #3F51B5;
+
+section{
+  margin-top: 60px;
+}
 .registration{
-  font-family: 'Oswald', sans-serif;
+  color: black;
   text-align: center;
 }
 
@@ -9,19 +14,48 @@
   margin: 10px;
 }
 
+
+
 .registration a:hover{
   text-decoration: none;
   cursor: pointer;
 }
 
+
+
+.btn{
+  border-radius: 0;
+}
+.btn-primary{
+  background: $mainColor;
+
+  &:hover{
+    background: #5C6BC0;
+  }
+}
+
+button{
+  //-webkit-box-shadow: 1px 1px 1px rgba(128,128,128,1);
+  //-moz-box-shadow: 1px 1px 1px  rgba(128,128,128,1);
+  //box-shadow: 1px 1px 1px 0px rgba(128,128,128,1);
+}
+
+button:hover{
+
+  -webkit-box-shadow: 2px 2px 2px rgba(128,128,128,1);
+  -moz-box-shadow: 2px 2px 2px  rgba(128,128,128,1);
+  box-shadow: 2px 2px 2px 0px rgba(128,128,128,1);
+}
+
 .forms{
-  font-family: 'Oswald', sans-serif;
+  color: black;
+  font-family: 'Patua One', cursive;
   background: #FAFAFA;
-  //background: white;
   //border: 1px solid #337ab7;
   padding: 20px;
 }
 
 .forms form div{
+  color: black;
   text-align: center;
 }

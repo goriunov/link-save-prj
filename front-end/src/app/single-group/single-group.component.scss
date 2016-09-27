@@ -1,3 +1,21 @@
+$fonts: 'Patua One', cursive;
+$mainColor : #3F51B5;
+
+#no-data{
+  text-align: center;
+  box-shadow: none;
+  border: 1px dashed $mainColor;
+  background: #E0E0E0;
+
+  .panel-body{
+    color:#757575;
+    font-size: 18px;
+  }
+}
+
+.container-fluid{
+  margin-bottom: 50px;
+}
 .btn-back{
   padding : 5px;
   text-align: center;
@@ -23,9 +41,14 @@
   margin-top: 5px;
 }
 
+
 .options{
   margin-left:10px;
   margin-bottom: 10px;
+}
+
+.options a{
+  margin-right: 5px;
 }
 
 .panel-body ,
@@ -65,31 +88,30 @@ a:hover,
 
 
 .new-create span{
-  color:#546E7A;
+  color:$mainColor;
   font-size: 80px;
   -webkit-transition : all 0.4s;
   transition: all 0.4s;
   border-radius: 50%;
   line-height: 1.33;
   padding:0 0 0 0;
-  background:#ECEFF1;
+  //background:#ECEFF1;
 }
 
 
 .new-create span:hover,
 .new-create span:focus,
 .new-create span:active{
+  text-shadow: 1px 1px gray;
   outline: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  color: #01579B;
+  color: #3949AB;
   opacity: 0.9;
   cursor: pointer;
   text-decoration: none;
-  //border: 1px solid #ECEFF1;
 }
 
 .description{
-  //text-align: center;
   margin-left: 40px;
   color: darkgray;
 }
@@ -102,6 +124,8 @@ header{
 }
 
 header .group-counter{
+  color: $mainColor;
+  text-shadow: 1px 1px gray;
   font-family: 'Oswald', sans-serif;
   float: left;
   font-size: 30px;
@@ -109,8 +133,9 @@ header .group-counter{
 }
 
 header .group-name{
+  color: #455A64;
+  text-shadow: 1px 1px gray;
   font-family: 'Oswald', sans-serif;
-  color: darkgray;
   float:left;
   margin-top: 30px;
   margin-left: 10px;

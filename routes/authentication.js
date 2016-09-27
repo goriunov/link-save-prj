@@ -6,7 +6,7 @@ var jwt = require('jsonwebtoken');
 var nodemailer = require('nodemailer');
 
 
-
+var smtpTransport = nodemailer.createTransport('smtps://verifylinker%40gmail.com:SomeLink1542637890@smtp.gmail.com');
 
 
 
@@ -27,11 +27,11 @@ router.post('/' , function(req ,res ,next){
             })
         }else {
 
-            var link=req.protocol + '://' + req.get('host')+"/user/verify/"+result._id;
+            var link= req.protocol + '://' + req.get('host')+"/user/verify/"+result._id;
             var mailOptions={
                 to : req.body.email,
-                subject : "Please confirm your Email account",
-                html : "Hello "+result.firstName+ " "+ result.lastName+ ", <br><h2>If you got this email by mistake just delete it.</h2><hr><br>Thank you for registration in Linker.<br>To continue use Linker please click on the link below to verify your email address: <br><hr>" +"<h2 style="+"text-align:center;"+"><a href="+link+">Click here to verify your email</a></h2>"
+                subject : "Verification Linkers account",
+                text : "Hello "+result.firstName+ " "+ result.lastName+ ".Thank you for registration in Linkers.ga. Please click follow link to verify your email address: "+ link
             };
 
             smtpTransport.sendMail(mailOptions, function(error, response){

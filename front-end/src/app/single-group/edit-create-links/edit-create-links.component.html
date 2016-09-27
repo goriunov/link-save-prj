@@ -1,9 +1,9 @@
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-  <fieldset class="form-group">
+  <fieldset class="form-group" [ngClass]="changeName ?  'hidden' :''">
     <input type="text" class="form-control"  placeholder="Insert your link" formControlName="link" >
   </fieldset>
 
-  <fieldset class="form-group" class="hidden">
+  <fieldset class="form-group" [ngClass]="changeName ? '': 'hidden' ">
     <input class="form-control" placeholder="Name of website" [ngModel]="linkName" formControlName="linkName">
   </fieldset>
   <div class="buttons">

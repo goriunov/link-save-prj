@@ -1,50 +1,24 @@
 
-
-<section class="container-fluid">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <h1>Hello work</h1>
+<div class="body-pic">
+    <section class="container-fluid">
+        <div class="container">
+            <div class="col-xs-12 col-sm-6 description" >
+                <p>Welcome to Linkers</p>
+                <small>Save you favorite links online and use it everywhere.</small>
             </div>
-
-            <div class="item">
-                <h1>Hello work</h1>
-            </div>
-
-            <div class="item">
-                <h1>Hello work</h1>
-            </div>
-
-            <div class="item">
-                <h1>Hello work</h1>
+            <div class="col-xs-12 col-sm-6" >
+                <router-outlet></router-outlet>
             </div>
         </div>
+    </section>
+</div>
+<!--<section class="container">-->
+    <!--<h1>How it works ?</h1>-->
+    <!--<div class="row">-->
+        <!--<h2>Create an account.</h2>-->
+        <!--<div class="col-xs-12">-->
+            <!--img-->
+        <!--</div>-->
+    <!--</div>-->
 
-        <!-- Left and right controls -->
-        <span>
-            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-        </span>
-
-        <span>
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </span>
-    </div>
-</section>
-<section class="container">
-    <router-outlet></router-outlet>
-</section>
+<!--</section>-->

@@ -17,7 +17,7 @@ router.get('/get-title/', function(req, res, next) {
 
   if(req.query.link == 'new'){
     res.status(200).json({
-      'title': "Link somewhere"
+      'title': "No title"
     });
 
   }else{
@@ -25,7 +25,7 @@ router.get('/get-title/', function(req, res, next) {
     client.on("fetch", function () {
       if(client.title == ''){
         res.status(200).json({
-          "title": 'Link no title'
+          "title": 'No title'
         });
       }else {
         res.status(200).json({
@@ -36,7 +36,7 @@ router.get('/get-title/', function(req, res, next) {
 
     client.on("error", function (err) {
       res.status(200).json({
-        "title": "Link somewhere"
+        "title": "No title"
       });
     });
     client.fetch();

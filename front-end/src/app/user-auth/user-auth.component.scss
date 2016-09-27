@@ -1,33 +1,105 @@
-.carousel-inner{
-  text-align: center;
-
-  height: 300px;
+.body-pic{
+  background: url("/assets/pictures/background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: absolute;
+  min-height: 610px;
+  top: 0;
+  right: 0;
+  left: 0;
 }
+.container-fluid{
+
+  font-family: 'Patua One', cursive;
+  position: absolute;
+  min-height: 610px;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: rgba(57,73,171,1);
+  background: -moz-linear-gradient(left, rgba(57,73,171,1) 0%, rgba(48,63,159,0.8) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(57,73,171,1)), color-stop(100%, rgba(48,63,159,0.8)));
+  background: -webkit-linear-gradient(left, rgba(57,73,171,1) 0%, rgba(48,63,159,0.8) 100%);
+  background: -o-linear-gradient(left, rgba(57,73,171,1) 0%, rgba(48,63,159,0.8) 100%);
+  background: -ms-linear-gradient(left, rgba(57,73,171,1) 0%, rgba(48,63,159,0.8) 100%);
+  background: linear-gradient(to right, rgba(57,73,171,1) 0%, rgba(48,63,159,0.8) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3949ab', endColorstr='#303f9f', GradientType=1 );
+  //background: rgba(33,149,243,0.8);
+  //background: -moz-linear-gradient(left, rgba(33,149,243,0.8) 0%, rgba(30,136,229,0.8) 100%);
+  //background: -webkit-gradient(left top, right top, color-stop(0%, rgba(33,149,243,0.8)), color-stop(100%, rgba(30,136,229,0.8)));
+  //background: -webkit-linear-gradient(left, rgba(33,149,243,0.8) 0%, rgba(30,136,229,0.8) 100%);
+  //background: -o-linear-gradient(left, rgba(33,149,243,0.8) 0%, rgba(30,136,229,0.8) 100%);
+  //background: -ms-linear-gradient(left, rgba(33,149,243,0.8) 0%, rgba(30,136,229,0.8) 100%);
+  //background: linear-gradient(to right, rgba(33,149,243,0.8) 0%, rgba(30,136,229,0.8) 100%);
+  //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2195f3', endColorstr='#1e88e5', GradientType=0.8 );
+
+
+  color: whitesmoke;
+  .container{
+    padding-bottom: 20px;
+    margin-top: 80px;
+
+
+    .description{
+      margin-top: 90px;
+      p {
+        font-size: 50px;
+      }
+      small{
+
+        font-size: 20px;
+      }
+    }
+  }
+
+
+}
+
 .container{
-  margin-top: 15px;
+  margin-top: 460px;
+}
+.row{
+  text-align: center;
 }
 
-span .right{
-    background:#ECEFF1;
-    border-radius: 15px;
-  background: rgba(236,239,241,0.8);
-  background: -moz-linear-gradient(left, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(236,239,241,0.8)), color-stop(100%, rgba(250,250,250,1)));
-  background: -webkit-linear-gradient(left, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
-  background: -o-linear-gradient(left, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
-  background: -ms-linear-gradient(left, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
-  background: linear-gradient(to right, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eceff1', endColorstr='#fafafa', GradientType=1 );
+@media (max-width: 992px ){
+  .container-fluid{
+    .container{
+      width: auto;
+    }
+  }
 }
 
-span  .left {
-  border-radius: 15px;
-  background: rgba(236,239,241,0.8);
-  background: -moz-linear-gradient(right, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
-  background: -webkit-gradient(right top, left top, color-stop(0%, rgba(236,239,241,0.8)), color-stop(100%, rgba(250,250,250,1)));
-  background: -webkit-linear-gradient(right, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
-  background: -o-linear-gradient(right, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
-  background: -ms-linear-gradient(right, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
-  background: linear-gradient(to left, rgba(236,239,241,0.8) 0%, rgba(250,250,250,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr=' #eceff1', GradientType=1 );
+@media (max-width: 768px){
+  .body-pic{
+    height: 800px;
+  }
+  .container-fluid{
+    height: 800px;
+    .container{
+      .description{
+        margin-top: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px){
+  .body-pic{
+    height: 850px;
+  }
+  .container-fluid{
+    height: 850px;
+  }
+}
+
+@media (max-width: 350px){
+  .body-pic{
+    height: 940px;
+  }
+  .container-fluid{
+    height: 940px;
+  }
 }

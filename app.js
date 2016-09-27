@@ -11,7 +11,7 @@ var routes = require('./routes/index');
 var database = require('./routes/database');
 var user = require('./routes/authentication');
 
-
+mongoose.connect('linker:linker154263@ds044679.mlab.com:44679/linker');
 mongoose.Promise = global.Promise;
 
 var app = express();
@@ -30,6 +30,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 
+
+
+
+
 // Add headers
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
@@ -43,6 +47,14 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', true);
   // Pass to next layer of middleware
   next();
+});
+
+
+app.use(function (req, res, next) {
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Expires', '-1');
+  res.header('Pragma', 'no-cache');
+  next()
 });
 
 app.use('/user' , user);

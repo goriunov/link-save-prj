@@ -8,8 +8,7 @@
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor",
-    "gulp": "gulp styling"
+    "e2e": "protractor"
   },
   "private": true,
   "dependencies": {
@@ -28,27 +27,22 @@
   },
   "devDependencies": {
     "@types/jasmine": "^2.2.30",
-    "angular-cli": "1.0.0-beta.14",
-    "autoprefixer": "^6.4.1",
-    "bootstrap": "^3.3.7",
+    "angular-cli": "1.0.0-beta.15",
     "codelyzer": "~0.0.26",
-    "gulp": "^3.9.1",
-    "gulp-postcss": "^6.2.0",
-    "ie-shim": "^0.1.0",
     "jasmine-core": "2.4.1",
     "jasmine-spec-reporter": "2.5.0",
-    "jquery": "^3.1.0",
     "karma": "1.2.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-cli": "^1.0.1",
     "karma-jasmine": "^1.0.2",
     "karma-remap-istanbul": "^0.2.1",
-    "ng2-popover": "0.0.8",
-    "postcss-nested": "^1.0.0",
-    "postcss-scss": "^0.3.0",
     "protractor": "4.0.5",
     "ts-node": "1.2.1",
     "tslint": "3.13.0",
-    "typescript": "2.0.2"
+    "typescript": "2.0.2",
+    "bootstrap": "^3.3.7",
+    "ie-shim": "^0.1.0",
+    "jquery": "^3.1.0",
+    "ng2-popover": "0.0.8"
   }
 }

@@ -28,7 +28,7 @@ export class  DataService {
           this.navName.emit(fullName);
         },
       (err)=>{
-        console.log('Opps Error :((');
+        // console.log('Opps Error :((');
         err = err.json();
         if(err.title == 'Wrong token'|| err.title == 'Not authorize'){
           this.navName.emit('');
@@ -55,11 +55,11 @@ export class  DataService {
       .subscribe(
       (res)=>{
         this.dataGroups[this.dataGroups.indexOf(newData)]._id = res.link._id;
-        console.log('New group created :))');
+        // console.log('New group created :))');
       },
       (err)=>{
         this.dataGroups.splice(this.dataGroups.indexOf(newData),1);
-        console.log('Opps Error :((');
+        // console.log('Opps Error :((');
         err = err.json();
         if(err.title == 'Wrong token'|| err.title == 'Not authorize'){
           this.navName.emit('');
@@ -80,9 +80,9 @@ export class  DataService {
     const token = localStorage.getItem('token') ?'?token='+localStorage.getItem('token') : '';
     this.http.post('/database/create-delete-edit-link'+token , body , {headers: headers})
       .subscribe(
-        (res) => console.log('Created :))'),
+        (res) => {},
         (err) => {
-          console.log('Opps Error :((');
+          // console.log('Opps Error :((');
           this.dataGroups[this.dataGroups.indexOf(oldData)].links.splice(this.dataGroups[this.dataGroups.indexOf(oldData)].links.indexOf(newLink) , 1);
           this.dataGroups[this.dataGroups.indexOf(oldData)].linkName.splice(this.dataGroups[this.dataGroups.indexOf(oldData)].linkName.indexOf(newName) , 1);
           err = err.json();
@@ -113,9 +113,9 @@ export class  DataService {
     const headers = new Headers({'Content-Type':'application/json'});
     const token = localStorage.getItem('token') ?'?token='+localStorage.getItem('token') : '';
     return this.http.post('/database/edit'+token , body ,{headers:headers}).subscribe(
-      (data)=>console.log('Saved :))'),
+      (data)=>{},
       (err)=> {
-        console.log('Opps Error :((');
+        // console.log('Opps Error :((');
         this.dataGroups[this.dataGroups.indexOf(oldData)].description = this.backupDescrpt;
         this.dataGroups[this.dataGroups.indexOf(oldData)].groupName = this.backupGroupName;
         err = err.json();
@@ -140,9 +140,9 @@ export class  DataService {
     const token = localStorage.getItem('token') ?'?token='+localStorage.getItem('token') : '';
     this.http.post('/database/create-delete-edit-link'+token , body , {headers: headers})
       .subscribe(
-        (res) => console.log('Link changed :))'),
+        (res) => {},
         (err) => {
-          console.log('Opps Error :((');
+          // console.log('Opps Error :((');
           this.router.navigate(['/dashboard']);
           err = err.json();
           if(err.title == 'Wrong token'|| err.title == 'Not authorize'){
@@ -166,9 +166,9 @@ export class  DataService {
     const token = localStorage.getItem('token') ?'?token='+localStorage.getItem('token') : '';
     this.http.post('/database/create-delete-edit-link'+token , body , {headers: headers})
       .subscribe(
-        (res) => console.log('Link deleted :))'),
+        (res) => {},
         (err) => {
-          console.log('Opps Error :((');
+          // console.log('Opps Error :((');
           this.router.navigate(['/dashboard']);
           err = err.json();
           if(err.title == 'Wrong token'|| err.title == 'Not authorize'){
@@ -188,11 +188,11 @@ export class  DataService {
     this.http.delete('/database/delete-content' , {'search':params})
       .subscribe(
         (res) => {
-          console.log('Element deleted :))');
+          // console.log('Element deleted :))');
           this.dataGroups.splice(this.dataGroups.indexOf(data) , 1);
         },
         (err)=>{
-          console.log('Opps Error :((');
+          // console.log('Opps Error :((');
           err = err.json();
           if(err.title == 'Wrong token'|| err.title == 'Not authorize'){
             this.navName.emit('');
@@ -202,7 +202,5 @@ export class  DataService {
         }
     );
 
-
   }
-
 }

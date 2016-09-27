@@ -13,15 +13,23 @@ declare var $:any;
     trigger('flyIn' , [
       state('in' , style({
         transform: 'translateX(0)',
-        opacity: '1.0'
+        opacity: '1.0',
+        // zoom: '1',
+        // filter: 'alpha(opacity=100)',
       })),
       transition('void => *' , [
-        style({transform: 'translateX(-100%)' , opacity: '0'}),
+        style({transform: 'translateX(-100%)' ,
+          // zoom: '0',
+          // filter: 'alpha(opacity=0)',
+          opacity: '0'}),
         animate('0.3s 100ms ease-out')
       ]),
       transition('* => void' , [
         animate('0.3s 10 ease-out',
-        style({transform: 'translateX(100%)' , opacity: '0'})),
+        style({transform: 'translateX(100%)' ,
+          // zoom: '0',
+          // filter: 'alpha(opacity=0)',
+          opacity: '0'})),
 
       ])
     ]),
@@ -38,6 +46,7 @@ declare var $:any;
 })
 
 export class MainContentComponent implements OnInit{
+  listFilter = '';
   createNew = false;
   edit = '';
   dataGroup: SingleLinkData[] = null;
@@ -63,9 +72,11 @@ export class MainContentComponent implements OnInit{
   onDelete(dataToDelete : SingleLinkData){
     this.edit = '';
     this.dataService.deleteContent(dataToDelete);
+    this.listFilter = '';
   }
 
   onOpen(index){
+      this.listFilter = '';
       this.router.navigate(['group' , index]);
   }
 

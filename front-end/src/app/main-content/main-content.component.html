@@ -1,33 +1,46 @@
 <section class="container" *ngIf="dataGroup != null">
 
+  <div class="row">
+    <div class="col-xs-offset-1 col-xs-10 col-sm-offset-4 col-sm-4">
+      <div class="input-group">
+        <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon1"></span>
+        <input class="form-control" placeholder="Search by group name"  type="text" [(ngModel)]="listFilter" (keyup)="0">
+      </div>
+    </div>
+  </div>
+
   <div class="col-xs-12 " *ngIf="tooltipOn">
     <div class="container-fluid">
       <h1>Groups board <small>| {{dataGroup.length? dataGroup.length : '0'}} {{dataGroup.length < 2 ? 'group': 'groups'}}</small></h1>
 
     </div>
-    <div *ngFor="let singleData of dataGroup; let i = index " [@flyIn]="'in'">
-      <div class=" grid-element col-xs-5 col-sm-3 col-md-3 col-lg-2" (mousemove)="addClass = i"  (mouseleave)="addClass = -1" [ngClass]="addClass==i ? 'hover-grid' : ''" *ngIf="edit != i+'edit' && edit != i+'delete' && edit != i+'add'">
+    <div *ngFor="let singleData of dataGroup | groupFilter:listFilter; let i = index " [@flyIn]="'in'">
+      <div class=" grid-element col-xs-5 col-sm-3 col-md-3 col-lg-3" (mousemove)="addClass = i"  (mouseleave)="addClass = -1" [ngClass]="addClass==i ? 'hover-grid' : ''" *ngIf="edit != i+'edit' && edit != i+'delete' && edit != i+'add'">
         <div class="option-buttons">
-          <span style=" top: 0; position: absolute;  left: 0;" (click)="edit = i+'edit'" popover="Change name and description" popoverPlacement="right" [popoverOnHover]="true"><span class="glyphicon glyphicon-cog" aria-hidden="true" ></span></span>
+          <span style=" top: 0; position: absolute;  left: 0;" (click)="edit = i+'edit'" popover="Configure group" popoverPlacement="right" [popoverOnHover]="true"><span class="glyphicon glyphicon-cog" aria-hidden="true" ></span></span>
           <span style="right: 5px; top: 0; position: absolute; color: darkred" (click)="edit = i+'delete'"  popover="Delete group" popoverPlacement="left" [popoverOnHover]="true"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></span>
           <span style=" right: 30px; top: 0;  position: absolute; color:#01579B; " (click)="edit = i+'add'" popover="Add new link " popoverPlacement="left" [popoverOnHover]="true"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true" ></span></span>
-          <span class="btn btn-info" style="font-family: 'Oswald', sans-serif; font-size:15px; left: 0 ;bottom: 0; right: 0; position: absolute;" (click)="onOpen(i)">Open</span>
+          <span class="btn btn-primary" style="font-family: 'Oswald', sans-serif; font-size:15px; left: 0 ;bottom: 0; right: 0; position: absolute;" (click)="onOpen(i)">Open</span>
         </div>
         <div class="main-content">
           <app-list-element [singleData]="singleData"></app-list-element>
         </div>
       </div>
-      <div [@appeared]="'in'" class="new-element col-xs-5 col-sm-3 col-md-3 col-lg-2" *ngIf="edit == i+'edit'"><app-edit-create [editContent]="singleData" (canceled)="edit = ''"></app-edit-create></div>
-      <div [@appeared]="'in'" class="insert-link col-xs-5  col-sm-3 new-element col-md-3 col-lg-2" *ngIf="edit == i+'add'"><app-edit-create-links [singleGroup]="singleData"  (canceled)="edit = ''"></app-edit-create-links></div>
+      <div [@appeared]="'in'" class="new-element col-xs-5 col-sm-3 col-md-3 col-lg-3" *ngIf="edit == i+'edit'"><app-edit-create [editContent]="singleData" (canceled)="edit = ''"></app-edit-create></div>
+      <div [@appeared]="'in'" class="insert-link col-xs-5  col-sm-3 new-element col-md-3 col-lg-3" *ngIf="edit == i+'add'"><app-edit-create-links [singleGroup]="singleData"  (canceled)="edit = ''"></app-edit-create-links></div>
 
-      <div [@appeared]="'in'" class="new-element col-xs-5 col-sm-3 col-md-3 deleting col-lg-2" *ngIf="edit == i+'delete'">
+      <div [@appeared]="'in'" class="new-element col-xs-5 col-sm-3 col-md-3 deleting col-lg-3" *ngIf="edit == i+'delete'">
         <p>Are you sure that you want to delete this group ?</p>
         <button class="btn btn-danger" (click)="onDelete(singleData)">Yes</button>
         <button class="btn btn-primary" (click)="edit = ''">Not</button>
       </div>
     </div>
 
-    <div [@appeared]="'in'" class="new-element col-xs-5 col-sm-3 col-md-3 col-lg-2" *ngIf="createNew"><app-edit-create (canceled)="createNew = false"></app-edit-create></div>
-    <div [@flyIn]="'in'" class="new-create col-xs-5 col-sm-3 col-md-3 col-lg-2" *ngIf="!createNew" ><span class="btn" (click)="createNew = true" ><i class=" glyphicon glyphicon-plus-sign" popover="Create new group" [popoverOnHover]="true"></i></span></div>
+    <div  class="new-element col-xs-5 col-sm-3 col-md-3 deleting col-lg-3" id="no-data" *ngIf="dataGroup.length == 0">
+      <p>You do not have any groups. Press blue button to add new group.</p>
+    </div>
+
+    <div [@appeared]="'in'" class="new-element col-xs-5 col-sm-3 col-md-3 col-lg-3" *ngIf="createNew"><app-edit-create (canceled)="createNew = false; listFilter = ''"></app-edit-create></div>
+    <div  class="new-create col-xs-5 col-sm-3 col-md-3 col-lg-3" *ngIf="!createNew" ><span class="btn" (click)="createNew = true;" ><i class=" glyphicon glyphicon-plus-sign" popover="Create new group" [popoverOnHover]="true"></i></span></div>
   </div>
 </section>

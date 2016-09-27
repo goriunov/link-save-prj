@@ -1,7 +1,16 @@
 
-<div class="btn-back" [routerLink]="['/dashboard']">
+<div class="btn-back" [routerLink]="['/']">
  <i class="glyphicon glyphicon-chevron-left"></i>
 </div>
+
+
+
+  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-4 col-sm-4">
+    <div class="input-group">
+      <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon1"></span>
+      <input class="form-control" placeholder="Search by link name"  type="text" [(ngModel)]="listFilter" (keyup)="0">
+    </div>
+  </div>
 
 <section class="container-fluid">
   <div  *ngIf="singleGroup">
@@ -9,7 +18,7 @@
       <!---->
       <header>
         <div class="group-counter">
-          <h2>{{singleGroup.groupName}} </h2>
+          <h2>{{singleGroup.groupName}}</h2>
         </div>
         <div class ="group-name">
           | {{singleGroup.links? singleGroup.links.length : '0'}} {{singleGroup.links.length < 2 ? 'link': 'links'}}
@@ -20,9 +29,9 @@
       <hr>
 <!---->
 
-        <div class="links col-xs-12" *ngFor="let websiteLink of singleGroup.linkName ; let i = index">
+        <div [@flyIn] class="links col-xs-12" *ngFor="let websiteLink of singleGroup.linkName | linkFilter: listFilter ; let i = index">
 
-          <div class="panel panel-primary" *ngIf = " edit != i+'edit'">
+          <div  class="panel panel-primary" *ngIf = " edit != i+'edit' && websiteLink != -1">
             <div class="panel-body">
               <div class="options" style="float: right">
                 <a (click)="edit = i+'edit'">edit</a>
@@ -35,14 +44,21 @@
             </div>
           </div>
 
-          <div class="links col-xs-12" *ngIf="edit == i+'edit'"><app-edit-create-links [singleGroup]="singleGroup" [index]="i" (canceled)="edit = ''" ></app-edit-create-links></div>
+          <div [@flyIn] class="links col-xs-12" *ngIf="edit == i+'edit'"><app-edit-create-links [singleGroup]="singleGroup" [index]="i" (canceled)="edit = ''; listFilter = ''" ></app-edit-create-links></div>
         </div>
 
+      <div class="links col-xs-12">
+        <div  class="panel panel-primary" id="no-data" *ngIf = "singleGroup.linkName.length == 0">
+          <div class="panel-body">
+            You do not have any links added to this group. Press blue button to add new link.
+          </div>
+        </div>
+      </div>
 <!---->
       <div class="group-new">
         <div class="new-create col-xs-12" *ngIf="!new"  ><span (click)="new = true" class="btn"><i class=" glyphicon glyphicon-plus-sign" popover="Create new link" [popoverOnHover]="true"></i></span></div>
       </div>
-      <div class="links col-xs-12" *ngIf="new"><app-edit-create-links [singleGroup]="singleGroup" (canceled)="new = false" ></app-edit-create-links></div>
+      <div [@flyIn] class="links col-xs-12" *ngIf="new"><app-edit-create-links [singleGroup]="singleGroup" (canceled)="new = false" ></app-edit-create-links></div>
 
     </div>
   </div>
