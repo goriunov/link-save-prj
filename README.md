@@ -4,7 +4,7 @@
 
 if you do not want to registrate use test accaount : 
 #
-email : tiz000028z@myntec.ac  
+email : tiz000028z@myntec.ac.nz  
 password: test
 ###Live link : http://link-keeper.azurewebsites.net/
 ###Website may load slowly because it is using hosting which turn off server if no one use it. Therefor be patient 
