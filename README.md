@@ -1,6 +1,6 @@
 # Project Linkers.
 
-##Project was builded for learning reason, tools used: NodeJS, MongoDB(mongoose), Angular2 Releas, HTML5, CSS3, Bootstrap, Gulp + some other. 
+##Project was builded for learning reason, tools used: NodeJS, MongoDB(mongoose), Angular2 Release, HTML5, CSS3, Bootstrap, Gulp + some other. 
 
 if you do not want to registrate use test accaount : 
 #
